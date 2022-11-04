@@ -1,39 +1,57 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React from "react";
+// dùng chính
+import {
+  CardBody,
+  CardTitle,
+  CardText,
+  ListGroup,
+  ListGroupItem,
+  
+  Card,
+  Button,
+} from "reactstrap";
 
-function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
-  return {
-    width,
-    height
-  };
-}
+// phần import trang
+import Header from "../component/Header";
+
 function OrderFood() {
   // Declare a new state variable, which we'll call "count"
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-console.log(windowDimensions.height );
   return (
-    <div style={{height:windowDimensions.height,width:windowDimensions.width}}>
-      <div style={{display:'flex',backgroundColor:"blue",flexDirection: "column"}}>
-    n
+    // container
+    <>
+      {/* header */}
+      <div>
+        <Header></Header>
       </div>
-      <div style={{display:'flex',backgroundColor:"red"}}>
-    a
-    </div>
-    <div style={{display:'flex',backgroundColor:"yellow"}}>
-    a
-    </div>
-    </div>
+      {/* content */}
+      <div style={{ paddingTop: 20, marginLeft: 950 }}>
+        <Card
+          style={{
+            width: "18rem",
+            left: "300px",
+          }}
+        >
+          <img alt="Card" src="https://picsum.photos/300/200" />
+          <CardBody>
+            <CardTitle tag="h5">Card Title</CardTitle>
+            <CardText>This is some text within a card body.</CardText>
+          </CardBody>
+          <ListGroup flush>
+            <ListGroupItem>An item</ListGroupItem>
+            <ListGroupItem>A second item</ListGroupItem>
+            <ListGroupItem>And a third item</ListGroupItem>
+          </ListGroup>
+          <CardBody>
+            <Button
+           color="danger"
+           style={{ marginLeft: 70}}>
+              Tiếp tục 
+            </Button>{' '}
+          </CardBody>
+        </Card>
+      </div>
+    </>
   );
 }
 export default OrderFood;

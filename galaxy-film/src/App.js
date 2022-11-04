@@ -1,10 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
-import OrderTicket from './pages/OrderFood'
+import OrderFood from './pages/OrderFood'
 
 function App() {
   return (
-    <OrderTicket/>
+    <OrderFood/>
   );
 }
 
