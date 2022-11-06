@@ -1,10 +1,9 @@
 
-import './App.css';
 import OrderFood from './pages/OrderFood'
-
+import Routers from './router/Routers';
 function App() {
   return (
-    <OrderFood/>
+    <Routers/>
   );
 }
 
