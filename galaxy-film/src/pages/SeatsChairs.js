@@ -1,10 +1,14 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import SeatChairs from "../component/SeatChairs";
-import { Col } from "reactstrap";
-import { QuantityPicker } from "react-qty-picker";
+
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
 import Header from "../component/Header";
+import Button from 'react-bootstrap/Button';
 export default function SeatsChairs() {
+  const url ="/book-ticket"
+
   return (
     <>
     <Header></Header>
@@ -42,65 +46,59 @@ export default function SeatsChairs() {
           {/* end */}
           {/* cart */}
           <div class="col-3">
-            <div class="col3-container">
-              <img
-                class="img-fluid img-table"
-                src={require("../assets/a1.jpg")}
-              />
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <span
-                  class="text-start crop-long-texts fw-bold text-dark text-uppercase mt-2"
-                  style={{ flex: 1 }}
-                >
-                  iCombo 1 Big Extra{" "}
-                </span>
-                <span
-                  class="text-start text-secondary text-break text-uppercase fw-bold  "
-                  style={{ flex: 1 }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.{" "}
-                </span>
-              </div>
-              <div class="red-text py-3">
-                <span class="text-start text-uppercase fs-5 text-white bg-danger fw-bold me-2">
-                  c13
-                </span>
-                <span class="text-danger">
+          <Card style={{ width: "18rem", margin: "20px" }}>
+              <Card.Img variant="top" src={require("../assets/a1.jpg")} />
+              <Card.Body>
+                <Card.Title> iCombo 1 Big Extra </Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+              </Card.Body>
+              <ListGroup className="list-group-flush">
+                <ListGroup.Item>
                   {" "}
-                  (*) Phim chỉ dành cho khán giả từ 13 tuổi trở lên
-                </span>
-              </div>
-              <div class="ulb">
-                <span class="text-start fw-bold pe-2">Rạp :</span>
-                <span> Galaxy Trung Chánh</span>
-                <span class="text-uppercase ps-2 ">|rạp 2</span>
-              </div>
-              <div class="ulb">
-                <span class="text-start fw-bold pe-2">Xuất Chiếu :</span>
-                <span> 15:15</span>
-                <span class="text-uppercase ps-2 ">|Thứ 3,01/11/2022</span>
-              </div>
-              <div class="ulb">
-                <span class="text-start fw-bold pe-2">Combo :</span>
+                  <span className="text-start text-uppercase fs-5 text-white bg-danger fw-bold me-2">
+                    c13
+                  </span>{" "}
+                  <span className="text-danger">
+                   
+                    (*) Phim chỉ dành cho khán giả từ 13 tuổi trở lên
+                  </span>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  {" "}
+                  <span className="text-start fw-bold pe-2">Rạp :</span>
+                  <span> Galaxy Trung Chánh</span>
+                  <span className="text-uppercase ps-2 ">|rạp 2</span>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  {" "}
+                  <span className="text-start fw-bold pe-2">Xuất Chiếu :</span>
+                  <span> 15:15</span>
+                  <span className="text-uppercase ps-2 ">|Thứ 3,01/11/2022</span>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                <span className="text-start fw-bold pe-2">Combo :</span>
                 <span> </span>
                 <span></span>
-              </div>
-              <div class="ulb">
-                <span class="text-start fw-bold pe-2">Ghế :</span>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                <span className="text-start fw-bold pe-2">Ghế :</span>
                 <span></span>
                 <span></span>
-              </div>
-              <div class="total my-3">
-                <span class="text-start py-2 fs-3">Tổng:</span>
-                <span class="text-end text-danger py-1 fs-2 px-3 "> 0VND </span>
-              </div>
-              <button
-                // onClick={() => navigate(`/book-ticket/seatsChairs`)}
-                class="add btn btn-danger text-white text-uppercase"
-              >
-                tiếp tục →{" "}
-              </button>
-            </div>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                <span className="text-start py-2 fs-3">Tổng:</span>
+                <span className="text-end text-danger py-1 fs-2 px-3 "> 0VND </span>
+             
+                </ListGroup.Item>
+              </ListGroup>
+              <Card.Body  style={{display:"flex" ,flexDirection:"row"}} >
+              <Button  href={url} className="add btn btn-danger text-white text-uppercase" style={{margin:10}}>Quay lại</Button>
+              <Button href={url+"/seatschair/payment"} className="add btn btn-danger text-white text-uppercase" style={{margin:10}}>Tiếp tục</Button>
+              </Card.Body>
+            </Card>
           </div>
         </div>
       </div>

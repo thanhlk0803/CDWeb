@@ -13,14 +13,15 @@ function OrderFood() {
     // container
     <>
       {/* header */}
-      <div>
+    
         <Header></Header>
-      </div>
+      
       {/* content */}
+      <div className="content">
       <ComboFood />
-      <div>
-        <Footer />
       </div>
+        <Footer />
+      
     </>
   );
 }
