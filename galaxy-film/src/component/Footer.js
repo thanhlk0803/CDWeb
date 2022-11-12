@@ -28,7 +28,7 @@ export default function Footer() {
     return { innerWidth, innerHeight };
   }
   return (
-    <MDBFooter style={{ background:"#08fbff" }} className="text-center text-lg-start text-muted">
+    <MDBFooter bgColor="dark" className="text-center text-lg-start text-muted">
       <section className="" style={{ justifyContent: "center", margin: 100 }}>
         <MDBRow>
           <MDBCol
@@ -49,7 +49,7 @@ export default function Footer() {
                   style={{ textDecoration: "none" }}
                 >
                 <i class="bi bi-arrow-right"></i>
-                  về chúng tôi
+                  Về chúng tôi
                 </a>
               </li>
               <li>
@@ -58,7 +58,7 @@ export default function Footer() {
                   className="text-white"
                   style={{ textDecoration: "none" }}
                 >
-                  thoả thuận sử dụng
+                  Thoả thuận sử dụng
                 </a>
               </li>
               <li>

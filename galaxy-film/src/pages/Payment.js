@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React,{ useState } from "react";
 /* eslint-disable jsx-a11y/scope */
 /* eslint-disable jsx-a11y/alt-text */
 import { Col } from "reactstrap";
@@ -12,13 +12,30 @@ import ListGroup from "react-bootstrap/ListGroup";
 import "../css/Payment.css";
 import Header from "../component/Header";
 import { Button } from "react-bootstrap";
+import Alert from 'react-bootstrap/Alert';
+import Footer from "../component/Footer";
 export default function Payment() {
   const url ="/book-ticket"
+  const [show, setShow] = useState(false);
 
   return (
     <>
       <div>
-        <Header></Header>
+        <Header/>
+        <Alert show={show} variant="success">
+      <Alert.Heading>Thanh toán đang được sử lí vui lòng đợi ít phút (ᵔ.ᵔ)</Alert.Heading>
+      <p>
+     Tên bộ phim: Red
+      </p>
+      <p>
+  địa chí rạp: 13/21 đường 12 quận thủ đức
+      </p>
+      <p>
+  Giờ chiếu: 8:20   ngày chiếu: 12/11/2022
+      </p>
+
+      
+    </Alert>
       </div>
       <div class="main">
         {/* chon */}
@@ -241,12 +258,17 @@ export default function Payment() {
               </ListGroup>
               <Card.Body  style={{display:"flex" ,flexDirection:"row"}} >
               <Button href={url+"/seatschair/"} className="add btn btn-danger text-white text-uppercase" style={{margin:10}}>Quay lại</Button>
-              <Button type="submit" className="add btn btn-danger text-white text-uppercase" style={{margin:10}}>Tiếp tục</Button>
+             
+              {!show && <Button type="submit" className="add btn btn-danger text-white text-uppercase" style={{margin:10}} onClick={() => setShow(true)}>Xác Nhận</Button>}
               </Card.Body>
             </Card>
           </div>
         </div>
       </div>
+      {/* footer */}
+      <Footer/>
+   
+ 
     </>
   );
 }

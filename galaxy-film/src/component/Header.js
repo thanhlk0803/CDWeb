@@ -13,7 +13,7 @@ function Header() {
   const [Login, setLogin] = useState(false);
 
   return (
-    <Navbar  expand="lg" style={{ background:"#08fbff" }}>
+    <Navbar fluid expand="sm" bg="dark">
       <Container fluid>
         <Navbar.Brand href="#">
           <img

@@ -6,6 +6,7 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Header from "../component/Header";
 import Button from 'react-bootstrap/Button';
+import Footer from "../component/Footer";
 export default function SeatsChairs() {
   const url ="/book-ticket"
 
@@ -103,6 +104,7 @@ export default function SeatsChairs() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
