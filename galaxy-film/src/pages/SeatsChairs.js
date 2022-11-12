@@ -11,6 +11,7 @@ export default function SeatsChairs() {
 
   return (
     <>
+    
     <Header></Header>
       <div class="main">
         {/* chon */}
