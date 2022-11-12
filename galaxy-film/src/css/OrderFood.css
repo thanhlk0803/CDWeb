@@ -137,11 +137,12 @@ span {
 }
 
 .g {
- 
+
   display: flex;
   flex-wrap: wrap;
-  padding-top:  0;
+  padding-top: 0;
 }
+
 .total {
   display: flex;
   flex-wrap: wrap;
@@ -154,4 +155,19 @@ span {
 
 .red-text>span:nth-child(2) {
   font-size: 12px;
+}
+
+/* mobie */
+@media only screen and (min-width:46.1785em) {
+  .content{
+    width: "150px";
+    height: "168px";
+  }
+}
+
+@media only screen and (min-width:46.25em)and (max-width:63.9375em) {
+  .content{
+    width: "150px";
+    height: "168px";
+  }
 }

@@ -28,7 +28,7 @@ export default function Footer() {
     return { innerWidth, innerHeight };
   }
   return (
-    <MDBFooter bgColor="dark" className="text-center text-lg-start text-muted">
+    <MDBFooter style={{ background:"#08fbff" }} className="text-center text-lg-start text-muted">
       <section className="" style={{ justifyContent: "center", margin: 100 }}>
         <MDBRow>
           <MDBCol

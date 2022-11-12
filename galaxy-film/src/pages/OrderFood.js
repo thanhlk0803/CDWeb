@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-undef */
 import React from "react";
 // dùng chính
 
@@ -13,14 +14,14 @@ function OrderFood() {
     // container
     <>
       {/* header */}
-      <div>
-        <Header></Header>
-      </div>
+
+      <Header></Header>
+
       {/* content */}
-      <ComboFood />
-      <div>
-        <Footer />
+      <div className="content">
+        <ComboFood />
       </div>
+      <Footer />
     </>
   );
 }

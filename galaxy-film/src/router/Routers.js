@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ComboFood from '../component/ComboFood';
-import Footer from '../component/Footer';
-import SeatChairs from '../component/SeatChairs';
+
+import Header from '../component/Header';
+
 
 // đường dẫn trang
 
@@ -16,11 +16,11 @@ export default function Routers() {
     <div>
       <Router>
         <Routes>
-          <Route path={""} element={<Footer />} />
+          <Route path={""} element={<Header />} />
           <Route path={url+""} element={<OrderFood />} />
 
           <Route path={url+"/seatschair"} element={<SeatsChairs />} />
-         <Route path={url+"/seatschair/payment"} element={< Payment />} />
+         <Route path={url+"/seatschair/payment"} element={<Payment />} />
 
         </Routes>
       </Router>
