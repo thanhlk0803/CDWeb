@@ -1,38 +1,13 @@
 import React from "react";
-import {
-  MDBFooter,
-  MDBContainer,
-  MDBCol,
-  MDBRow,
-  MDBIcon,
-  MDBBtn,
-} from "mdb-react-ui-kit";
-import { useState } from "react";
-import { useEffect } from "react";
+import { MDBFooter, MDBCol, MDBRow } from "mdb-react-ui-kit";
+
 export default function Footer() {
-  const [windowSize, setWindowSize] = useState(getWindowSize());
-
-  useEffect(() => {
-    function handleWindowResize() {
-      setWindowSize(getWindowSize());
-    }
-
-    window.addEventListener("resize", handleWindowResize);
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
-  function getWindowSize() {
-    const { innerWidth, innerHeight } = window;
-    return { innerWidth, innerHeight };
-  }
   return (
     <MDBFooter bgColor="dark" className="text-center text-lg-start text-muted">
       <section className="" style={{ justifyContent: "center", margin: 100 }}>
         <MDBRow>
           <MDBCol
-            lg="4 "
+            lg="4"
             md="6"
             className="mb-4 mb-md-0"
             style={{ marginTop: 50 }}
@@ -48,7 +23,7 @@ export default function Footer() {
                   className="text-white"
                   style={{ textDecoration: "none" }}
                 >
-                <i class="bi bi-arrow-right"></i>
+                  <i class="bi bi-arrow-right"></i>
                   Về chúng tôi
                 </a>
               </li>
@@ -99,7 +74,7 @@ export default function Footer() {
                   className="text-white"
                   style={{ textDecoration: "none" }}
                 >
-                 Thể loại phim
+                  Thể loại phim
                 </a>
               </li>
               <li>
@@ -108,7 +83,7 @@ export default function Footer() {
                   className="text-white"
                   style={{ textDecoration: "none" }}
                 >
-                 Bình luận phim
+                  Bình luận phim
                 </a>
               </li>
               <li>
@@ -149,7 +124,7 @@ export default function Footer() {
                   className="text-white"
                   style={{ textDecoration: "none" }}
                 >
-                Góp ý
+                  Góp ý
                 </a>
               </li>
               <li>
@@ -158,9 +133,7 @@ export default function Footer() {
                   className="text-white"
                   style={{ textDecoration: "none" }}
                 >
-                 SALE & SERVICES
-
-
+                  SALE & SERVICES
                 </a>
               </li>
               <li>
@@ -170,7 +143,6 @@ export default function Footer() {
                   style={{ textDecoration: "none" }}
                 >
                   RẠP / GIÁ VÉ
-
                 </a>
               </li>
               <li>
@@ -179,7 +151,7 @@ export default function Footer() {
                   className="text-white"
                   style={{ textDecoration: "none" }}
                 >
-                 Tuyển dụng
+                  Tuyển dụng
                 </a>
               </li>
             </ul>
