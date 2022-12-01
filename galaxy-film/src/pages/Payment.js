@@ -34,26 +34,26 @@ export default function Payment() {
       </div>
 
       {/* chon */}
-      <div class="row  text-center">
-        <div class="col-lg-9 ">
+      <div className="row  text-center">
+        <div className="col-lg-9 ">
           {/* chon */}
 
-          <h3 class="text-uppercase text-start text-white p-3 ">Thanh toán</h3>
+          <h3 className="text-uppercase text-start text-white p-3 ">Thanh toán</h3>
 
-          <div class="firsttable mx-3">
-            <table class="table text-start table-striped table-light ">
+          <div className="firsttable mx-3">
+            <table className="table text-start table-striped table-light ">
               <tbody>
                 {/* phần tử  */}
 
-                <div class="row">
-                  <div class="col-75">
-                    <div class="container">
+                <div className="row">
+                  <div className="col-75">
+                    <div className="container">
                       <form action="/action_page.php">
-                        <div class="row">
-                          <div class="col-50">
+                        <div className="row">
+                          <div className="col-50">
                             <h3>Billing Address</h3>
                             <label for="fname">
-                              <i class="fa fa-user"></i> Full Name
+                              <i className="fa fa-user"></i> Full Name
                             </label>
                             <input
                               type="text"
@@ -62,7 +62,7 @@ export default function Payment() {
                               placeholder="John M. Doe"
                             />
                             <label for="email">
-                              <i class="fa fa-envelope"></i> Email
+                              <i className="fa fa-envelope"></i> Email
                             </label>
                             <input
                               type="text"
@@ -72,7 +72,7 @@ export default function Payment() {
                             />
                           </div>
 
-                          <div class="col-25">
+                          <div className="col-25">
                             <h3>Payment</h3>
                             <Image
                               style={{
@@ -103,7 +103,7 @@ export default function Payment() {
         </div>
         {/* end */}
         {/* cart */}
-        <div class="col-3">
+        <div className="col-3">
           <Card style={{ width: "18rem", margin: "20px" }}>
             <Card.Img variant="top" src={require("../assets/a1.jpg")} />
             <Card.Body>

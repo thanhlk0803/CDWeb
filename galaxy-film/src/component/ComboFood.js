@@ -23,24 +23,24 @@ export default function ComboFood() {
           <div className="col-sm-9 ">
             {/* chon */}
             <div className=" col7-container ">
-              <h3 class="text-uppercase text-start text-white p-3 ">
+              <h3 className="text-uppercase text-start text-white p-3 ">
                 Chọn vé/Thức Ăn
               </h3>
               {/* chon combo */}
-              <div class="firsttable mx-3">
-                <table class="table text-start table-striped table-light ">
+              <div className="firsttable mx-3">
+                <table className="table text-start table-striped table-light ">
                   <thead>
-                    <tr class="table-dark">
+                    <tr className="table-dark">
                       <th scope="col" colspan="3">
                         Loại vé
                       </th>
-                      <th scope="col" class="text-center">
+                      <th scope="col" className="text-center">
                         Số Lượng
                       </th>
-                      <th scope="col" class="text-end">
+                      <th scope="col" className="text-end">
                         Giá(VND)
                       </th>
-                      <th scope="col" class="text-end">
+                      <th scope="col" className="text-end">
                         Tổng(VND)
                       </th>
                     </tr>
@@ -53,13 +53,13 @@ export default function ComboFood() {
                         <b>Vé người lớn</b>
                         <Col>Vé 2d</Col>
                       </td>
-                      <td scope="row" class="text-center crop-long-texts">
+                      <td scope="row" className="text-center crop-long-texts">
                         <QuantityPicker />
                       </td>
-                      <td class="text-end">
+                      <td className="text-end">
                         <span>50,00</span>
                       </td>
-                      <td class="text-end">
+                      <td className="text-end">
                         <span>0</span>
                       </td>
                     </tr>
@@ -70,13 +70,13 @@ export default function ComboFood() {
                         <b>Vé 2D thành viên</b>
                         <Col>Vé 2D-Chỉ áp dụng khách hàng thành viên</Col>
                       </td>
-                      <td scope="row" class="text-center crop-long-texts">
+                      <td scope="row" className="text-center crop-long-texts">
                         <QuantityPicker />
                       </td>
-                      <td class="text-end">
+                      <td className="text-end">
                         <span>50,00</span>
                       </td>
-                      <td class="text-end">
+                      <td className="text-end">
                         <span>0</span>
                       </td>
                     </tr>
@@ -86,13 +86,13 @@ export default function ComboFood() {
                         <b>Vé Đôi</b>
                         <Col>Vé Vé ghế đôi (bao gồm 2 vé)</Col>
                       </td>
-                      <td scope="row" class="text-center crop-long-texts">
+                      <td scope="row" className="text-center crop-long-texts">
                         <QuantityPicker />
                       </td>
-                      <td class="text-end">
+                      <td className="text-end">
                         <span>50,00</span>
                       </td>
-                      <td class="text-end">
+                      <td className="text-end">
                         <span>0</span>
                       </td>
                     </tr>
@@ -104,23 +104,23 @@ export default function ComboFood() {
                           Vé Vé ghế đôi (bao gồm 2 vé) áp dụng cho thành viên
                         </Col>
                       </td>
-                      <td scope="row" class="text-center crop-long-texts">
+                      <td scope="row" className="text-center crop-long-texts">
                         <QuantityPicker />
                       </td>
-                      <td class="text-end">
+                      <td className="text-end">
                         <span>50,00</span>
                       </td>
-                      <td class="text-end">
+                      <td className="text-end">
                         <span>0</span>
                       </td>
                     </tr>
 
                     {/* tổng */}
                     <tr>
-                      <td colspan="5" class="text-danger">
+                      <td colspan="5" className="text-danger">
                         <span>Tổng</span>
                       </td>
-                      <td class="text-end text-danger">
+                      <td className="text-end text-danger">
                         <span>0</span>
                       </td>
                     </tr>
@@ -130,20 +130,20 @@ export default function ComboFood() {
               </div>
               {/* end */}
               {/* chon ve */}
-              <div class=" mx-3">
-                <table class="table text-start table-striped table-light ">
+              <div className=" mx-3">
+                <table className="table text-start table-striped table-light ">
                   <thead>
-                    <tr class="table-dark">
+                    <tr className="table-dark">
                       <th scope="col" colspan="3">
                         Loại Đồ ăn
                       </th>
-                      <th scope="col" class="text-center">
+                      <th scope="col" className="text-center">
                         Số Lượng
                       </th>
-                      <th scope="col" class="text-end">
+                      <th scope="col" className="text-end">
                         Giá(VND)
                       </th>
-                      <th scope="col" class="text-end">
+                      <th scope="col" className="text-end">
                         Tổng(VND)
                       </th>
                     </tr>
@@ -152,132 +152,132 @@ export default function ComboFood() {
                     {/* 1 */}
                     <tr>
                       <td colSpan={3} style={{ width: 415 }}>
-                        <div class="wrapper3">
+                        <div className="wrapper3">
                           <div>
-                            <span class="text-start crop-long-texts fw-bold text-dark">
+                            <span className="text-start crop-long-texts fw-bold text-dark">
                               iCombo 1 Big Extra{" "}
                             </span>
                           </div>
                           <div>
                             <img
-                              class="img-fluid img-table"
+                              className="img-fluid img-table"
                               src={require("../assets/combo1.jpg")}
                             />
                           </div>
                           <div style={{ marginTop: -30 }}>
-                            <span class="text-start text-dark text-break text-uppercase ">
+                            <span className="text-start text-dark text-break text-uppercase ">
                               1 BẮP + 1 NƯỚC 32 Oz (LIPTON/SUỐI/DIET PEPSI) + 1
                               SNACK
                             </span>
                           </div>
                         </div>
                       </td>
-                      <td scope="row" class="text-center crop-long-texts">
+                      <td scope="row" className="text-center crop-long-texts">
                         <QuantityPicker />
                       </td>
-                      <td class="text-end">
+                      <td className="text-end">
                         <span>50,00</span>
                       </td>
-                      <td class="text-end">
+                      <td className="text-end">
                         <span>0</span>
                       </td>
                     </tr>
                     {/* 2 */}
                     <tr>
                       <td colSpan={3} style={{ width: 415 }}>
-                        <div class="wrapper3">
+                        <div className="wrapper3">
                           <div>
-                            <span class="text-start crop-long-texts fw-bold text-dark">
+                            <span className="text-start crop-long-texts fw-bold text-dark">
                               iCombo 1 Big Extra{" "}
                             </span>
                           </div>
                           <div>
                             <img
-                              class="img-fluid img-table"
+                              className="img-fluid img-table"
                               src={require("../assets/combo2.png")}
                             />
                           </div>
                           <div style={{ marginTop: -30 }}>
-                            <span class="text-start text-dark text-break text-uppercase ">
+                            <span className="text-start text-dark text-break text-uppercase ">
                               1 BẮP + 1 NƯỚC 32 Oz (LIPTON/SUỐI/DIET PEPSI) + 1
                               SNACK
                             </span>
                           </div>
                         </div>
                       </td>
-                      <td scope="row" class="text-center crop-long-texts">
+                      <td scope="row" className="text-center crop-long-texts">
                         <QuantityPicker />
                       </td>
-                      <td class="text-end">
+                      <td className="text-end">
                         <span>50,00</span>
                       </td>
-                      <td class="text-end">
+                      <td className="text-end">
                         <span>0</span>
                       </td>
                     </tr>
                     {/* 3 */}
                     <tr>
                       <td colSpan={3} style={{ width: 415 }}>
-                        <div class="wrapper3">
+                        <div className="wrapper3">
                           <div>
-                            <span class="text-start crop-long-texts fw-bold text-dark">
+                            <span className="text-start crop-long-texts fw-bold text-dark">
                               iCombo 1 Big Extra{" "}
                             </span>
                           </div>
                           <div>
                             <img
-                              class="img-fluid img-table"
+                              className="img-fluid img-table"
                               src={require("../assets/combo3.jpg")}
                             />
                           </div>
                           <div style={{ marginTop: -30 }}>
-                            <span class="text-start text-dark text-break text-uppercase ">
+                            <span className="text-start text-dark text-break text-uppercase ">
                               1 BẮP + 1 NƯỚC 32 Oz (LIPTON/SUỐI/DIET PEPSI) + 1
                               SNACK
                             </span>
                           </div>
                         </div>
                       </td>
-                      <td scope="row" class="text-center crop-long-texts">
+                      <td scope="row" className="text-center crop-long-texts">
                         <QuantityPicker />
                       </td>
-                      <td class="text-end">
+                      <td className="text-end">
                         <span>50,00</span>
                       </td>
-                      <td class="text-end">
+                      <td className="text-end">
                         <span>0</span>
                       </td>
                     </tr>
                     {/* 4 */}
                     <tr>
                       <td colSpan={3} style={{ width: 415 }}>
-                        <div class="wrapper3">
+                        <div className="wrapper3">
                           <div>
-                            <span class="text-start crop-long-texts fw-bold text-dark">
+                            <span className="text-start crop-long-texts fw-bold text-dark">
                               iCombo 1 Big Extra{" "}
                             </span>
                           </div>
                           <div>
                             <img
-                              class="img-fluid img-table"
+                              className="img-fluid img-table"
                               src={require("../assets/combo4.jpg")}
                             />
                           </div>
                           <div style={{ marginTop: -30 }}>
-                            <span class="text-start text-dark text-break text-uppercase ">
+                            <span className="text-start text-dark text-break text-uppercase ">
                               1 BẮP + 1 NƯỚC 32 Oz (LIPTON/SUỐI/DIET PEPSI) + 1
                               SNACK
                             </span>
                           </div>
                         </div>
                       </td>
-                      <td scope="row" class="text-center crop-long-texts">
+                      <td scope="row" className="text-center crop-long-texts">
                         <QuantityPicker />
                       </td>
-                      <td class="text-end">
+                      <td className="text-end">
                         <span>50,00</span>
                       </td>
-                      <td class="text-end">
+                      <td className="text-end">
                         <span>0</span>
                       </td>
                     </tr>

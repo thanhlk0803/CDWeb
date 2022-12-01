@@ -23,7 +23,7 @@ export default function Footer() {
                   className="text-white"
                   style={{ textDecoration: "none" }}
                 >
-                  <i class="bi bi-arrow-right"></i>
+                  <i className="bi bi-arrow-right"></i>
                   Về chúng tôi
                 </a>
               </li>
