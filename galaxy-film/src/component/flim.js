@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { data } from "../data";
 import "../css/flim.css";
 import { GetListFilm } from "../config";
 
@@ -13,7 +12,6 @@ export default function Flim() {
       })
       .catch((err) => console.log("error =>", err));
   }, []);
-console.log(ListUser);
   return (
     <>
       <section className="flim">

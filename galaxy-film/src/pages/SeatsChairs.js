@@ -35,7 +35,7 @@ export default function SeatsChairs() {
                   <b  style={{ margin: 5 }}>Ghé Còn Trống</b>
                 </div>
                 <div className="g" style={{ margin: 30 }}>
-                <div className="seat seat--reserved a" ></div>
+                <div className="seat seat--reserved abc" ></div>
                   <b  style={{ margin: 5 }}>Ghé đang chọn</b>
                 </div>
               </div>
