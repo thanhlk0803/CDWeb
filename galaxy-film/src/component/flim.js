@@ -3,6 +3,7 @@ import {data} from '../data';
 import '../css/flim.css';
 
 export default function Flim(){
+    
     return (
         <>
         <section className="flim">

@@ -2,9 +2,11 @@ import React from 'react';
 import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../css/flim.css';
+import { Link } from "react-router-dom";
 
 
 export default function BookTickets(){
+    const url ="/book-ticket"
     return (
         <>
         <div className="container" style={styles.class} >
@@ -31,8 +33,7 @@ export default function BookTickets(){
                         <option>chọn suất</option>
                     </select>
                 </div>
-                <button type="submit" className="btn btn-success" style={styles.btn}>Mua vé</button>
-               
+                <Link to={url} className="add btn btn-danger text-white text-uppercase" style={{margin:3}}>Đặt vé</Link>
                 </div>
                 </div>
             </div>
