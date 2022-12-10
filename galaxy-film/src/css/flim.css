@@ -4,23 +4,9 @@
     box-sizing: border-box;
 }
 
-.b{
-    box-sizing:var(--bs-btn-font-size);
-    margin-right: 10px;
-    margin-left: 500px;
-}
-.a{
-    background: rgb(12, 12, 12);
-}
 .flim{
     padding:30px;
 }
 .flim-item{
     padding: 10px;
 }
-.style{
-    --bs-btn-padding-y:25;
-    --bs-btn-padding-x: 5;
-    --bs-btn-font-size: 75;
-}
-

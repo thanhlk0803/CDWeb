@@ -3,6 +3,7 @@ import {data} from '../data';
 import '../css/flim.css';
 
 export default function Flim(){
+    
     return (
         <>
         <section className="flim">
@@ -16,7 +17,7 @@ export default function Flim(){
                                 <div className="card">
                                     <img src={course.imageUrl} className="card-img-top" alt="..."/> 
                                     <div className="card-body">
-                                        <h5 className="card-title">{course.courseName}</h5>    
+                                        <h5 className="card-title">{course.Name}</h5>    
                                     </div>   
                                 </div>
                             </div>
