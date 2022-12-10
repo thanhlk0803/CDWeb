@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { Col } from "reactstrap";
 // import Quantity from "../component/Quantity"
 import { QuantityPicker } from "react-qty-picker";
-import { useNavigate } from "react-router-dom/dist";
+import { Link, useNavigate } from "react-router-dom/dist";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import "../css/Payment.css";
@@ -154,13 +154,13 @@ export default function Payment() {
               </ListGroup.Item>
             </ListGroup>
             <Card.Body style={{ display: "flex", flexDirection: "row" }}>
-              <Button
-                href={url + "/seatschair/"}
+              <Link
+                to={url + "/seatschair/"}
                 className="add btn btn-danger text-white text-uppercase"
                 style={{ margin: 10 }}
               >
                 Quay lại
-              </Button>
+              </Link>
 
               {!show && (
                 <Button
