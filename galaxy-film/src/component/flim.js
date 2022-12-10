@@ -1,3 +1,8 @@
+import React, { useEffect, useState } from "react";
+import { data } from "../data";
+import "../css/flim.css";
+import { GetListFilm } from "../config";
+
 import React from 'react';
 import {data} from '../data';
 import '../css/flim.css';

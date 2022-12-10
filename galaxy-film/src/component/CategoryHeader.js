@@ -17,7 +17,7 @@ export default function CategoryHeader() {
 
   return (
     <Navbar variant="dark" bg="dark" expand="sm">
-      <Container fluid>
+      <Container >
         <Navbar.Brand href="/">Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-dark-example" />
         <Navbar.Collapse id="navbar-dark">
