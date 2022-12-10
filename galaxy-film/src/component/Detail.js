@@ -11,7 +11,14 @@ export default function Home() {
         <Slider />
       </div>
       <div>
-        
+      <div className="row">
+                        <div className="card">
+                        <img src={course.imageUrl} className="card-img-top" alt="..."/> 
+                        <div className="card-body">
+                        <h5 className="card-title">{course.Name}</h5>    
+                    </div>   
+                </div>
+            </div>
       </div>
       <div>
         <Footer />

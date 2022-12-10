@@ -32,6 +32,7 @@ export default function BookTickets(){
                     </select>
                 </div>
                 <button type="submit" className="btn btn-success" style={styles.btn}>Mua vé</button>
+               
                 </div>
                 </div>
             </div>
