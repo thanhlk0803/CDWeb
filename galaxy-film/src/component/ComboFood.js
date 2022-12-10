@@ -7,7 +7,7 @@ import React from "react";
 import { Col } from "reactstrap";
 // import Quantity from "../component/Quantity"
 import { QuantityPicker } from "react-qty-picker";
-import { useNavigate } from "react-router-dom/dist";
+import { Link, useNavigate } from "react-router-dom/dist";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Button } from "react-bootstrap";
@@ -397,7 +397,7 @@ export default function ComboFood() {
                 </ListGroup.Item>
               </ListGroup>
               <Card.Body>
-              <Button href={url+"/seatschair"} className="add btn btn-danger text-white text-uppercase" style={{margin:10}}>Tiếp tục</Button>
+              <Link to={url+"/seatschair"} className="add btn btn-danger text-white text-uppercase" style={{margin:10}}>Tiếp tục</Link>
                 
               </Card.Body>
             </Card>

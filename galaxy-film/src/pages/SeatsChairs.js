@@ -7,6 +7,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Header from "../component/Header";
 import Button from 'react-bootstrap/Button';
 import Footer from "../component/Footer";
+import { Link } from "react-router-dom";
 export default function SeatsChairs() {
   const url ="/book-ticket"
 
@@ -35,7 +36,7 @@ export default function SeatsChairs() {
                   <b  style={{ margin: 5 }}>Ghé Còn Trống</b>
                 </div>
                 <div className="g" style={{ margin: 30 }}>
-                <div className="seat seat--reserved a" ></div>
+                <div className="seat seat--reserved abc" ></div>
                   <b  style={{ margin: 5 }}>Ghé đang chọn</b>
                 </div>
               </div>
@@ -97,8 +98,8 @@ export default function SeatsChairs() {
                 </ListGroup.Item>
               </ListGroup>
               <Card.Body  style={{display:"flex" ,flexDirection:"row"}} >
-              <Button  href={url} className="add btn btn-danger text-white text-uppercase" style={{margin:10}}>Quay lại</Button>
-              <Button href={url+"/seatschair/payment"} className="add btn btn-danger text-white text-uppercase" style={{margin:10}}>Tiếp tục</Button>
+              <Link  to={url} className="add btn btn-danger text-white text-uppercase" style={{margin:10}}>Quay lại</Link>
+              <Link to={url+"/seatschair/payment"} className="add btn btn-danger text-white text-uppercase" style={{margin:10}}>Tiếp tục</Link>
               </Card.Body>
             </Card>
           </div>
