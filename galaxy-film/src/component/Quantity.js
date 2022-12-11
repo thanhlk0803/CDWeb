@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactDOM } from "react";
-export default class Quantity extends React.Component {
+export default className Quantity extends React.Component {
     constructor(props) {
       super(props);
       

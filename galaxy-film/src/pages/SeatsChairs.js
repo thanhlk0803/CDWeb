@@ -14,28 +14,28 @@ export default function SeatsChairs() {
     <>
     
     <Header></Header>
-      <div class="main">
+      <div className="main">
         {/* chon */}
-        <div class="row g-0 text-center">
-          <div class="col-sm-9 ">
+        <div className="row g-0 text-center">
+          <div className="col-sm-9 ">
             {/* chon */}
-            <div class="text-left col7-container ">
-              <h3 class="text-uppercase text-start text-white p-3 ">
+            <div className="text-left col7-container ">
+              <h3 className="text-uppercase text-start text-white p-3 ">
                 Chọn Ghế :
               </h3>
               {/* chon combo */}
               <SeatChairs />
               <div style={{display:"flex",flexDirection:"row"}}>
-                <div class="g" style={{ margin: 30 }}>
-                  <div class="seat seat--reserved seat--north"></div>
+                <div className="g" style={{ margin: 30 }}>
+                  <div className="seat seat--reserved seat--north"></div>
                   <b style={{ margin: 5 }} >Ghé đã được đặt</b>
                 </div>
-                <div class="g" style={{ margin: 30 }}>
-                <div class="seat seat--enabled seat--north"></div>
+                <div className="g" style={{ margin: 30 }}>
+                <div className="seat seat--enabled seat--north"></div>
                   <b  style={{ margin: 5 }}>Ghé Còn Trống</b>
                 </div>
-                <div class="g" style={{ margin: 30 }}>
-                <div class="seat seat--reserved a" ></div>
+                <div className="g" style={{ margin: 30 }}>
+                <div className="seat seat--reserved a" ></div>
                   <b  style={{ margin: 5 }}>Ghé đang chọn</b>
                 </div>
               </div>
@@ -47,7 +47,7 @@ export default function SeatsChairs() {
           </div>
           {/* end */}
           {/* cart */}
-          <div class="col-3">
+          <div className="col-3">
           <Card style={{ width: "18rem", margin: "20px" }}>
               <Card.Img variant="top" src={require("../assets/a1.jpg")} />
               <Card.Body>
