@@ -7,15 +7,16 @@ import React from "react";
 import { Col } from "reactstrap";
 // import Quantity from "../component/Quantity"
 import { QuantityPicker } from "react-qty-picker";
-import { Link, useNavigate } from "react-router-dom/dist";
+import { Link, useNavigate, useParams } from "react-router-dom/dist";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Button } from "react-bootstrap";
 export default function ComboFood() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  const {FilmID} = useParams();
+  
   const url ="/book-ticket"
-
-  return (
+   return (
     <>
       <div className="main">
         {/* chon */}
@@ -24,7 +25,7 @@ export default function ComboFood() {
             {/* chon */}
             <div className=" col7-container ">
               <h3 className="text-uppercase text-start text-white p-3 ">
-                Chọn vé/Thức Ăn
+                Chọn vé/Thức Ăn  {FilmID}
               </h3>
               {/* chon combo */}
               <div className="firsttable mx-3">

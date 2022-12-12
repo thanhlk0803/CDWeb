@@ -60,4 +60,4 @@ const styles = {
         padding: 6,
     }
 };
-export default MyComponent;
+ export default MyComponent;

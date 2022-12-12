@@ -4,14 +4,26 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Icon from "react-bootstrap-icons";
 import ModalLogin from "./ModalLogin";
 import CategoryHeader from "./CategoryHeader";
-
+import { useNavigate } from "react-router-dom";
 function Header() {
-  const [Login, setLogin] = useState(false);
+    const [Login, setLogin] = useState(false);
+// ham log out
+// function useLogoutTimer() {
+//   const userIsInactive = useFakeInactiveUser();
+//   const navigate = useNavigate();
 
+//   useEffect(() => {
+//     if (userIsInactive) {
+//       // eslint-disable-next-line no-undef
+//       fake.logout();
+//       navigate("/session-timed-out");
+//     }
+//   }, [userIsInactive]);
+// }
   return (
     <>
     <Navbar fluid expand="sm" bg="dark">
