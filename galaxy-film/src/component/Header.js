@@ -42,7 +42,7 @@ function Header() {
                 aria-label="Search"
                 style={{margin:12}}
               />
-              <Button variant="outline-success" style={{margin:12}}>
+              <Button type="submit" variant="outline-success" style={{margin:12}}>
                 <Icon.Search size={10}/>
               </Button>
             </Form>

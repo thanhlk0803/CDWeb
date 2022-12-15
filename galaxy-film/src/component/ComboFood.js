@@ -289,65 +289,7 @@ export default function ComboFood() {
           {/* end */}
           {/* cart */}
           <div className="col-3">
-            {/* <div className="col3-container">
-              <img
-                className="img-fluid img-table"
-                src={require("../assets/a1.jpg")}
-              />
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <span
-                  className="text-start crop-long-texts fw-bold text-dark text-uppercase mt-2"
-                  style={{ flex: 1 }}
-                >
-                  iCombo 1 Big Extra{" "}
-                </span>
-                <span
-                  className="text-start text-secondary text-break text-uppercase fw-bold  "
-                  style={{ flex: 1 }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.{" "}
-                </span>
-              </div>
-              <div className="red-text py-3">
-                <span className="text-start text-uppercase fs-5 text-white bg-danger fw-bold me-2">
-                  c13
-                </span>
-                <span className="text-danger">
-                  {" "}
-                  (*) Phim chỉ dành cho khán giả từ 13 tuổi trở lên
-                </span>
-              </div>
-              <div className="ulb">
-                <span className="text-start fw-bold pe-2">Rạp :</span>
-                <span> Galaxy Trung Chánh</span>
-                <span className="text-uppercase ps-2 ">|rạp 2</span>
-              </div>
-              <div className="ulb">
-                <span className="text-start fw-bold pe-2">Xuất Chiếu :</span>
-                <span> 15:15</span>
-                <span className="text-uppercase ps-2 ">|Thứ 3,01/11/2022</span>
-              </div>
-              <div className="ulb">
-                <span className="text-start fw-bold pe-2">Combo :</span>
-                <span> </span>
-                <span></span>
-              </div>
-              <div className="ulb">
-                <span className="text-start fw-bold pe-2">Ghế :</span>
-                <span></span>
-                <span></span>
-              </div>
-              <div className="total my-3">
-                <span className="text-start py-2 fs-3">Tổng:</span>
-                <span className="text-end text-danger py-1 fs-2 px-3 "> 0VND </span>
-              </div>
-              <button
-                // onClick={() => navigate(`/book-ticket/seatsChairs`)}
-                className="add btn btn-danger text-white text-uppercase"
-              >
-                tiếp tục →{" "}
-              </button>
-            </div> */}
+         
             <Card style={{ width: "18rem", margin: "20px" }}>
               <Card.Img variant="top" src={require("../assets/a1.jpg")} />
               <Card.Body>
