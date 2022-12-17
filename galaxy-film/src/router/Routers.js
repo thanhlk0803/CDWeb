@@ -18,10 +18,9 @@ export default function Routers() {
       <Router>
         <Routes>
           <Route path={"/"} element={<Home />} />
-          <Route path={url+""} element={<OrderFood />} />
-
-          <Route path={url+"/seatschair"} element={<SeatsChairs />} />
-         <Route path={url+"/seatschair/payment"} element={<Payment />} />
+          <Route path={url+"/:FilmID"} element={<OrderFood />}  />
+          <Route path={url+"/seatschair/:FilmID"} element={<SeatsChairs />} />
+         <Route path={url+"/seatschair/payment"} element={<Payment />}  exact/>
          <Route path="*" element={<NotFound/>}/>
         </Routes>
       

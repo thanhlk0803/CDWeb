@@ -1,11 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { data } from "../data";
 import "../css/flim.css";
 import { GetListFilm } from "../config";
 
+<<<<<<< HEAD
 import React from 'react';
 import {data} from '../data';
 import '../css/flim.css';
+=======
+export default function Flim() {
+  const [ListUser, setList] = useState([]);
+  useEffect(() => {
+    GetListFilm()
+      .then((data) => {
+        setList(data);
+      
+      })
+      .catch((err) => console.log("error =>", err));
+  }, []);
+  return (
+    <>
+      <section className="flim">
+        <button className="btn btn-light" style={{ margin: 12 }}>
+          Phim Đang Chiếu
+        </button>
+>>>>>>> main
 
 export default function Flim(){
     

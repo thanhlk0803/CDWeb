@@ -3,6 +3,7 @@ import React from 'react';
 import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import BookTickets from "../component/BookTickets";
+<<<<<<< HEAD
 import { Carousel } from "react-bootstrap";
 import '../css/flim.css';
 const MyComponent = () => {
@@ -36,6 +37,34 @@ const MyComponent = () => {
                 </Carousel.Item>
 
                 <div style={{   
+=======
+import {Carousel} from "react-bootstrap";
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { GetListFilm } from '../config';
+
+function MyComponent ()  {
+    const [ListSlider, setList] = useState([]);
+  useEffect(() => {
+    GetListFilm()
+      .then((data) => {
+        setList(data);
+      
+      })
+      .catch((err) => console.log("error =>", err));
+  }, []);
+console.log(ListSlider);
+    return (
+        <div >
+
+            <Carousel>
+                <Carousel.Item>
+                    <img
+                     src={'https://cdn.galaxycine.vn/media/2022/11/25/khaitruongnhatrang-digital-2048x682_1669346464818.jpg'}
+                     className={'d-block w-100'}
+                    />
+                         <div style={{   
+>>>>>>> main
                     position: 'absolute',
                     display: 'flex',
                     top: 0,
@@ -50,14 +79,24 @@ const MyComponent = () => {
                 }}>
                     < BookTickets style={styles.btn} />
                 </div>
+<<<<<<< HEAD
 
 
             </Carousel>
+=======
+                  
+                </Carousel.Item>
+               
+       
+            </Carousel>
+           
+>>>>>>> main
 
         </div>
     );
 
 };
+<<<<<<< HEAD
 
 export default MyComponent;
 
@@ -68,3 +107,13 @@ const styles = {
         padding: 6,
     }
 };
+=======
+const styles = {
+    btn: {
+        top: 500,
+        right: 10,
+        padding: 6,
+    }
+};
+ export default MyComponent;
+>>>>>>> main
