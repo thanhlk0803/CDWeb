@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Galaxy_film_BE.Interface;
+using System;
 
 namespace Galaxy_film_BE.Models
 {
-    public class User
+    public class User : BaseEntity
     {
-        public Guid ID { get; set; }
         public string LastName { get; set; }
         public string FirstMidName { get; set; }
         public string Password { get; set; }

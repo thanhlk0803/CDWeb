@@ -3,7 +3,7 @@ using System;
 
 namespace Galaxy_film_BE.Models
 {
-    public class MovieThreatre : BaseClass 
+    public class MovieThreatre : BaseEntity 
     {
         public Guid ThreatreID { get; set; }
         public Threatre Threatre { get; set; }

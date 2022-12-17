@@ -3,7 +3,7 @@ using System;
 
 namespace Galaxy_film_BE.Models
 {
-    public class MovieActor : BaseClass
+    public class MovieActor : BaseEntity
     {
         public Guid ActorID { get; set; }
         public Actor Actor { get; set; }

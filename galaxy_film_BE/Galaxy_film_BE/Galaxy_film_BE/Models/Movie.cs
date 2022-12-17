@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Galaxy_film_BE.Models
 {
-    public class Movie : BaseClass
+    public class Movie : BaseEntity
     {
         public string Name { get; set; }
         public DateTime ProducedYear { get; set; }

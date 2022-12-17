@@ -3,7 +3,7 @@ using System;
 
 namespace Galaxy_film_BE.Models
 {
-    public class Rating : BaseClass
+    public class Rating : BaseEntity
     {
         public int Rate { get; set; }
         public string Content { get; set; }
