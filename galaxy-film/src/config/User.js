@@ -14,7 +14,6 @@ export async function GetAllUser(username) {
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
       allUser.push({id: doc.id, ...doc.data() });
-      console.log(doc.id, " => ", doc.data());
     });
     
     return allUser;

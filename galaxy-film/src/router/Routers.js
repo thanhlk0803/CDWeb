@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route,  } from "react-router-dom";
 
 
 
@@ -11,15 +11,16 @@ import Payment from '../pages/Payment';
 import SeatsChairs from '../pages/SeatsChairs';
 import NotFound from '../pages/404NotFound';
 import Home from '../pages/Home';
-import Search from '../pages/Search';
+import SearchScreen from '../pages/Search';
 export default function Routers() {
   const url ="/book-ticket"
+  
   return (
     <div>
       <Router>
         <Routes>
-          <Route path={"/"} element={<Home />}  exact/>
-          <Route path={"/?:search"} element={<Search />}  exact/>
+          <Route path={"/"} element={<Home />}  />
+          <Route path={"/search"} key="keyword" element={<SearchScreen />}  />
 
           <Route path={url+""} element={<OrderFood />} />
 

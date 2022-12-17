@@ -18,7 +18,6 @@ function MyComponent ()  {
       })
       .catch((err) => console.log("error =>", err));
   }, []);
-console.log(ListSlider);
     return (
         <div >
 

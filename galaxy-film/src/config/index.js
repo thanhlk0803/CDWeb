@@ -1,2 +1,2 @@
 export { db } from "./firebase"
-export { GetListFilm } from "./Filmdata.js"
+export { GetListFilm,Search } from "./Filmdata.js"
