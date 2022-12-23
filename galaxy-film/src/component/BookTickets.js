@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../css/flim.css';
+import { Link } from 'react-router-dom';
 
 
 export default function BookTickets(){
@@ -13,7 +14,7 @@ export default function BookTickets(){
                 <h2 style={styles.a}>Mua Vé Nhanh</h2>
                 <div className="form-group">
                     <select className="form-select" placeholder="Country" >
-                        <option>Chọn rạp</option>
+                        <option value={""}>Chọn rạp</option>
                     </select>
                 </div>
                 <div className="form-group">    
@@ -31,7 +32,7 @@ export default function BookTickets(){
                         <option>chọn suất</option>
                     </select>
                 </div>
-                <button type="submit" className="btn btn-success" style={styles.btn}>Mua vé</button>
+                <Link to={"/book-ticket"} className="add btn btn-danger text-white text-uppercase">Mua vé</Link>
                
                 </div>
                 </div>

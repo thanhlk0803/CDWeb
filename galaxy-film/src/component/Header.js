@@ -20,7 +20,7 @@ function Header() {
   }
   return (
     <>
-      <Navbar fluid expand="sm" bg="dark">
+      <Navbar fluid="true" expand="sm" bg="dark">
         <Container fluid>
           <Navbar.Brand href="/">
             <img
