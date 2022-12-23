@@ -5,7 +5,7 @@ namespace Galaxy_film_BE.DAL
 {
     public class UnitOfWork : IDisposable
     {
-        private GalaxyFilmContext context = new GalaxyFilmContext();
+        private GalaxyFilmContext context;
         private GenericRepository<Movie> movieRepository;
 
         public GenericRepository<Movie> MovieRepository

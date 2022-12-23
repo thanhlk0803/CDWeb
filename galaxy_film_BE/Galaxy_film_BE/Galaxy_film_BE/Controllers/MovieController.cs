@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Galaxy_film_BE.DAL;
+using Galaxy_film_BE.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,36 +11,39 @@ namespace Galaxy_film_BE.Controllers
     [ApiController]
     public class MovieController : ControllerBase
     {
-        // GET: api/<MovieController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private IGenericRepository<Movie> movieRepository;
+
+        public MovieController(IGenericRepository<Movie> movieRepository)
         {
-            return new string[] { "value1", "value2" };
+            this.movieRepository = movieRepository;
         }
 
         // GET api/<MovieController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IEnumerable<Movie> Get(int id)
         {
-            return "value";
+            return movieRepository.GetAll();
         }
 
         // POST api/<MovieController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Movie movie)
         {
+            movieRepository.Insert(movie);
         }
 
         // PUT api/<MovieController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put([FromBody] Movie movie)
         {
+            movieRepository.Update(movie);
         }
 
         // DELETE api/<MovieController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            movieRepository.Delete(id);
         }
     }
 }

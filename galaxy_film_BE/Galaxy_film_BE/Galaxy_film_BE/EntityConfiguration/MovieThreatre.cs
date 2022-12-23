@@ -9,7 +9,6 @@ namespace Galaxy_film_BE.EntityConfiguration
         public void Configure(EntityTypeBuilder<MovieThreatre> builder)
         {
             builder.HasKey(mt => mt.ID);
-
         }
     }
 }

@@ -30,7 +30,9 @@ namespace Galaxy_film_BE
             services.AddControllers();
 
             services.AddDbContext<GalaxyFilmContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("abc")));
+            options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
+
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +41,8 @@ namespace Galaxy_film_BE
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
 
             app.UseHttpsRedirection();
