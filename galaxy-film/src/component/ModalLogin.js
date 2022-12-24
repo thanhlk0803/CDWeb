@@ -11,9 +11,11 @@ import {
   MDBInput,
   MDBCheckbox,
 } from "mdb-react-ui-kit";
-import { addUser,GetAllUser, GetAllUserDetail} from "../config/index";
-
-
+import { addUser, } from "../config/index";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { auth } from "../config/firebase";
+import { Navigate } from "react-router-dom";
+const Logined =false
 // modal
 function MyVerticallyCenteredModal(props) {
   return (
@@ -37,11 +39,29 @@ function MyVerticallyCenteredModal(props) {
 // bên trong modal
 export default function ModalLogin() {
   const [modalShow, setModalShow] = React.useState(false);
+  const [Auth, setAuth] = useState(null)
   // eslint-disable-next-line no-unused-vars
-  const [Login, setLogin] = useState(false);
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth,(user)=>{
+      if (user){
+        setAuth(user);
+      }else{
+      setAuth(null);
+      }
+    });
+    return () => {
+      listen();
+    }
+   
+  }, [])
+  const UserSignOut = () => { 
+    signOut(auth).then(() => {
+    console.log("logout completed");
+    }).catch(error => console.log(error))
+  }
   return (
     <>
-      {Login === false ? (
+      {Auth === null ? (
         <Button
           style={{
             flexDirection: "row",
@@ -69,7 +89,9 @@ export default function ModalLogin() {
             background: "#fff",
             color: "black",
           }}
+          onClick={UserSignOut}
         >
+
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -79,9 +101,10 @@ export default function ModalLogin() {
           >
             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
           </svg>
-          Thanh Trần /Logout
+          {Auth.email} /Logout
         </Button>
       )}
+      {/* modal */}
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
@@ -91,11 +114,75 @@ export default function ModalLogin() {
 }
 function FormLogin() {
   const [justifyActive, setJustifyActive] = useState("tab1");
+  // đăng kí
   const [name, setname] = useState();
-  const [UserName, setUserName] = useState();
   const [email, setemail] = useState();
   const [password, setpassword] = useState();
   const [password2, setpassword2] = useState();
+  // đăng nhập
+  const [username, setusername] = useState();
+  const [passwords, setpasswords] = useState();
+  const [Auth, setAuth] = useState([])
+  
+// đăng nhập
+  const SignIn = (e) => {
+    signInWithEmailAndPassword(auth,username,passwords)
+   
+    .then((userCrendential) => {
+      // console.log(userCrendential);
+      alert(
+        "Đăng nhập thành công",
+        "Thông báo không để trống trường name",
+        [{ text: "OK" }]
+      )
+    }).catch((error)=>{
+      console.log(error);
+      alert(
+        "Đăng nhập thất bại",
+        "Thông báo không để trống trường name",
+        [{ text: "OK" }]
+      )
+    })
+  
+  }
+  // useffect đăng nhập
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth,(user)=>{
+      if (user){
+        setAuth(user);
+      }else{
+      setAuth(null);
+      }
+    });
+    return () => {
+      listen();
+    }
+   
+  }, [])
+  // đăng kí
+  const SignUp = () => {
+    createUserWithEmailAndPassword(auth,email,password)
+   
+    .then((userCrendential) => {
+      // console.log(userCrendential);
+      alert(
+        "Đăng kí thành công",
+        "Thông báo không để trống trường name",
+        [{ text: "OK" }]
+      )
+    }).catch((error)=>{
+      console.log(error);
+      alert(
+        "Đăng đăng thất bại",
+        "Thông báo không để trống trường name",
+        [{ text: "OK" }]
+      )
+    })
+    
+  
+  }
+
+
   const handleJustifyClick = (value) => {
     if (value === justifyActive) {
       return;
@@ -103,15 +190,8 @@ function FormLogin() {
 
     setJustifyActive(value);
   };
-  const [ListUser, setList] = useState([]);
-  useEffect(() => {
-    GetAllUserDetail(UserName)
-      .then((data) => {
-        setList(data);
-      })
-      .catch((err) => console.log("error =>", err));
-  }, [UserName]);
-  console.log(ListUser[0]);
+
+
   return (
     <div>
       <MDBContainer>
@@ -139,14 +219,16 @@ function FormLogin() {
         </MDBTabs>
 
         <MDBTabsContent>
-          <MDBTabsPane show={justifyActive === "tab1"}>
+          <MDBTabsPane  show={justifyActive === "tab1"}>
             <MDBInput
+              onChange={(e) => setusername(e.target.value)}
               wrapperClass="mb-4"
-              label="Email address"
+              label="Email"
               id="form1"
               type="email"
             />
             <MDBInput
+              onChange={(e) => setpasswords(e.target.value)}
               wrapperClass="mb-4"
               label="Password"
               id="form2"
@@ -160,12 +242,15 @@ function FormLogin() {
                 id="flexCheckDefault"
                 label="Remember me"
               />
-              <a href="!#">Forgot password?</a>
             </div>
 
-            <Button className="mb-4 w-100">Sign in</Button>
+            <Button className="mb-4 w-100"  type="submit" block="true" onClick={()=>{
+              SignIn();
+             
+            }}>Sign in </Button>
+            
           </MDBTabsPane>
-
+          {/* đăng kí */}
           <MDBTabsPane show={justifyActive === "tab2"}>
             <MDBInput
               wrapperClass="mb-4"
@@ -174,13 +259,7 @@ function FormLogin() {
               id="form1"
               type="text"
             />
-            <MDBInput
-              wrapperClass="mb-4"
-              onChange={(e) => setUserName(e.target.value)}
-              label="Username"
-              id="form1"
-              type="text"
-            />
+          
             <MDBInput
               wrapperClass="mb-4"
               onChange={(e) => setemail(e.target.value)}
@@ -202,27 +281,27 @@ function FormLogin() {
               id="form1"
               type="password"
             />
-           <Button
-            onClick={() => {
-                if (password === password2&&UserName ) {
-                  addUser(name, UserName, email, password);
-                  alert('Đăng kí thành công', 'Thông báo không để trống trường name', [{ text: 'OK' }])
-                }
-                else if(name === null)  {
-                alert('Thông báo không để trống trường name', 'Thông báo không để trống trường name', [{ text: 'OK' }])
-                }
-                else if(UserName === undefined) {
-                alert('Thông báo không để trống trường Username','Thông báo không để trống trường name',  [{ text: 'OK' }])
-                }
-                else if(email === undefined){
-                alert('Thông báo không để trống trường email', 'Thông báo không để trống trường name', [{ text: 'OK' }])
+            <Button
+              onClick={() => {
+                if (password === password2) {
+                  SignUp();
+                  // addUser(Auth.uid,name, email, password);
+                  alert(
+                    "Đăng kí thành công",
+                    "Thông báo không để trống trường name",
+                    [{ text: "OK" }]
+                  );
                 }
               }}
               className="mb-4"
-             >Sign Up</Button>
+            >
+              Sign Up
+            </Button>
           </MDBTabsPane>
         </MDBTabsContent>
       </MDBContainer>
+   
+   
     </div>
   );
 }

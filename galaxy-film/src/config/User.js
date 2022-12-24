@@ -20,10 +20,10 @@ export async function GetAllUserDetail(username) {
     
     return allUser;
   }
-  export async function addUser(name, Username, email ,password) {
-    addDoc(collection(db, "users"), {
+  export async function addUser(uid,name, email ,password) {
+    addDoc(collection(db, "users",uid + ''), {
       name: name,
-      username: Username,
+    
       email: email,
       password: password,
     });
