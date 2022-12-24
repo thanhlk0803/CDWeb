@@ -9,6 +9,7 @@ using ZaloPay.Helper;
 using ZaloPay.Helper.Crypto;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Galaxy_film_BE.DAL;
+using System.Threading.Tasks;
 
 namespace Galaxy_film_BE.Controllers
 {
@@ -22,8 +23,8 @@ namespace Galaxy_film_BE.Controllers
         static string queryOrderUrl = "https://sandbox.zalopay.com.vn/v001/tpe/getstatusbyapptransid";
         private string key2 = "uUfsWgfLkRLzq6W2uNXTCxrfxs51auny";
 
-        [HttpGet]
-        public async void Get()
+        [HttpPost]
+        public async Task<Dictionary<string, object>> GetQRCode()
         {
             var transid = Guid.NewGuid().ToString();
             var embeddata = new { merchantinfo = "embeddata123" };
@@ -35,7 +36,7 @@ namespace Galaxy_film_BE.Controllers
             param.Add("appid", appid);
             param.Add("appuser", "demo");
             param.Add("apptime", Utils.GetTimeStamp().ToString());
-            param.Add("amount", "50000");
+            param.Add("amount", "80000");
             param.Add("apptransid", DateTime.Now.ToString("yyMMdd") + "_" + transid); // mã giao dich có định dạng yyMMdd_xxxx
             param.Add("embeddata", JsonConvert.SerializeObject(embeddata));
             param.Add("item", JsonConvert.SerializeObject(items));
@@ -49,30 +50,12 @@ namespace Galaxy_film_BE.Controllers
             var result = await HttpHelper.PostFormAsync(createOrderUrl, param);
 
 
-            foreach (var entry in result)
-            {
-                Console.WriteLine("{0} = {1}", entry.Key, entry.Value);
-            }
-
-            var apptransid = "<apptransid>";
-
-            var param3 = new Dictionary<string, string>();
-            param3.Add("appid", appid);
-            param3.Add("apptransid", apptransid);
-            var data3 = appid + "|" + apptransid + "|" + key1;
-
-            param3.Add("mac", HmacHelper.Compute(ZaloPayHMAC.HMACSHA256, key1, data));
-
-            var result3 = await HttpHelper.PostFormAsync(queryOrderUrl, param3);
-
-            foreach (var entry in result3)
-            {
-                Console.WriteLine("{0} = {1}", entry.Key, entry.Value);
-            }
+            return result;
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] DataPayment cbdata)
+        [Route("callback")]
+        public IActionResult Callback([FromBody] DataPayment cbdata)
         {
             var result = new Dictionary<string, object>();
 
@@ -111,6 +94,24 @@ namespace Galaxy_film_BE.Controllers
 
             // thông báo kết quả cho ZaloPay server
             return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("CheckStatusTransaction")]
+        public async Task<Dictionary<string, object>> ChectStatusTransaction()
+        {
+            var apptransid = "<apptransid>";
+
+            var param = new Dictionary<string, string>();
+            param.Add("appid", appid);
+            param.Add("apptransid", apptransid);
+            var data = appid + "|" + apptransid + "|" + key1;
+
+            param.Add("mac", HmacHelper.Compute(ZaloPayHMAC.HMACSHA256, key1, data));
+
+            var result = await HttpHelper.PostFormAsync(queryOrderUrl, param);
+
+            return result;
         }
     }
     
