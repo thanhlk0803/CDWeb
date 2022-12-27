@@ -8,6 +8,8 @@ import { useParams, } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Detail } from '../config';
+import {useDispatch, useSelector} from "react-redux";
+
 export  default function DetailPage(){
 const {id} =useParams();
 const [ListUser, setList] = useState([]);
