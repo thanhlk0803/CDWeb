@@ -6,9 +6,20 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "bear-react-dropdown": "^2.2.0-alpha.1",
+    "bootstrap": "^5.2.2",
+    "firebase": "^9.14.0",
+    "mdb-react-ui-kit": "^5.0.0",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.5.0",
+    "react-bootstrap-icons": "^1.9.1",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "react-qty-picker": "^1.0.6",
+    "react-router-dom": "^6.4.3",
+    "react-scripts": "5.0.1",
+    "react-seat-picker": "^1.5.3",
+    "react-tooltip": "^4.4.3",
+    "reactstrap": "^9.1.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "@types/bootstrap": "^5.2.5",
     "web-vitals": "^3.0.4"
   }
 }

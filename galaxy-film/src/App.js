@@ -1,10 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
-import OrderTicket from '../src/pages/OrderTicket'
 
+import OrderFood from './pages/OrderFood'
+import Routers from './router/Routers';
+import Test from "./component/Test"
 function App() {
   return (
-    <OrderTicket/>
+    // <Test/>
+    <Routers/>
   );
 }
 
