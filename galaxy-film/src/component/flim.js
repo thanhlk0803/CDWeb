@@ -32,7 +32,7 @@ export default function Flim() {
                <Link style={{
                 textDecoration:"none",
                 color:"black"
-               }} to={"/detail"+course.tenphim}  >
+               }} to={"/detail/"+course.id}  >
                     <div className="card">
                       <img
                         src={course.hinhanh}

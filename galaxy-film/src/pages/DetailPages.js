@@ -1,14 +1,13 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import "../css/flim.css";
 import "../css/Payment.css";
-import {  Image } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import Header from '../component/Header';
 import Footer from '../component/Footer';
 import { useParams, } from 'react-router-dom';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState ,useEffect} from 'react';
 import { Detail } from '../config';
-import {useDispatch, useSelector} from "react-redux";
 
 export  default function DetailPage(){
 const {id} =useParams();
@@ -16,7 +15,7 @@ const [ListUser, setList] = useState([]);
 useEffect(() => {
   Detail(id)
    
-    .catch((err) => console.log("error 111 =>", err));
+  
 }, [id]);
 console.log(Detail(id));
     return(

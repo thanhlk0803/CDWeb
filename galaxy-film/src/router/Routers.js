@@ -20,9 +20,8 @@ export default function Routers() {
       <Router>
         <Routes>
           <Route path={"/"} element={<Home />}>
-          
           </Route>
-          <Route path={"detail:id"} element={<DetailPage />} />
+          <Route path={"/detail/:id"} element={<DetailPage />} />
           <Route path={"/search"} key="keyword" element={<SearchScreen />} />
 
           <Route path={url + ""} element={<OrderFood />} />

@@ -40,7 +40,7 @@ function MyComponent ()  {
                     paddingRight: 150,
                     paddingTop: 50,
                 }}>
-                    < BookTickets style={styles.btn} />
+                    <BookTickets style={styles.btn} />
                 </div>
                   
                 </Carousel.Item>
