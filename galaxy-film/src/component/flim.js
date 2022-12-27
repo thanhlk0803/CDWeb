@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../css/flim.css";
 import { GetListFilm } from "../config";
+import { Link } from "react-router-dom";
 
 export default function Flim() {
   const [ListUser, setList] = useState([]);
@@ -27,16 +28,21 @@ export default function Flim() {
                   className="col-xl-3 col-lg-4 col-md6 col-sm-12 flim-item"
                   key={imdex}
                 >
-                  <div className="card">
-                    <img
-                      src={course.hinhanh}
-                      className="card-img-top"
-                      alt="..."
-                    />
-                    <div className="card-body">
-                      <h5 className="card-title">{course.tenphim}</h5>
+               <Link style={{
+                textDecoration:"none",
+                color:"black"
+               }} to={"/detail"+course.tenphim}  >
+                    <div className="card">
+                      <img
+                        src={course.hinhanh}
+                        className="card-img-top"
+                        alt="..."
+                      />
+                      <div className="card-body">
+                        <h5 className="card-title">{course.tenphim}</h5>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               );
             })}

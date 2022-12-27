@@ -5,7 +5,6 @@
 import Table from "react-bootstrap/Table";
 import React, { useState } from "react";
 import { Col } from "reactstrap";
-// import Quantity from "../component/Quantity"
 import { QuantityPicker } from "react-qty-picker";
 import {
   createSearchParams,

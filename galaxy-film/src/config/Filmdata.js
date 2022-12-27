@@ -29,4 +29,18 @@ export  async function Search(id) {
   
   return List;
 }
+export  async function Detail(id) {
+  const List = [];
+  const q = query(collection(db, "Film"), where("tenphim", "==", `${id}`));
+
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    List.push({ ...doc.data() });
+    console.log(List);
+  });
+  
+  return List;
+}
+
 
