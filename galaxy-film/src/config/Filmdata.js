@@ -1,6 +1,8 @@
 import { db } from "./firebase";
 import {
   collection,
+  doc,
+  getDoc,
   getDocs,
   query,
   where,
@@ -31,7 +33,7 @@ export  async function Search(id) {
 }
 export  async function Detail(id) {
   const List = [];
-  const q = query(collection(db, "Film"), where("tenphim", "==", `${id}`));
+  const q = query(collection(db, "Film"),id);
 
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
@@ -43,4 +45,14 @@ export  async function Detail(id) {
   return List;
 }
 
-
+export async function GetDetail(id) {
+  const Users = [];
+  const ref = doc(db, "Film", `${id}`);
+  const docSnap = await getDoc(ref);
+  if (docSnap.exists()) {
+    Users.push(docSnap.data());
+  } else {
+    console.log("No such document!");
+  }
+  return Users;
+}

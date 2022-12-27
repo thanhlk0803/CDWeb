@@ -1,91 +1,95 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React from "react";
 import "../css/flim.css";
 import "../css/Payment.css";
 import { Image } from "react-bootstrap";
-import Header from '../component/Header';
-import Footer from '../component/Footer';
-import { useParams, } from 'react-router-dom';
-import { useState ,useEffect} from 'react';
-import { Detail } from '../config';
+import Header from "../component/Header";
+import Footer from "../component/Footer";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Detail, GetDetail } from "../config";
+import BookTicketDetail from "../component/BookTicketDetail";
 
-export  default function DetailPage(){
-const {id} =useParams();
-const [ListUser, setList] = useState([]);
-useEffect(() => {
-  Detail(id)
-   
-  
-}, [id]);
-console.log(Detail(id));
-    return(
-        <>
-        <Header/>
-        <div className="firsttable mx-3">
-            <table className="table text-start table-striped table-light ">
-              <tbody>
-                {/* phần tử  */}
+export default function DetailPage() {
+  const { id } = useParams();
+  const [List, setList] = useState();
+  useEffect(() => {
+    GetDetail(id)
+      .then((data) => {
+        setList(data);
+      })
+      .catch((err) => console.log("error =>", err));
+  }, [id]);
+  console.log(List?.[0].hinhanh);
+  return (
+    <>
+      <Header />
 
-                <div className="row">
-                  <div className="col-75">
-                    <div className="container">
-                      <form action="/action_page.php">
-                        <div className="row">
-                          <div className="col-50">
-                          <Image
-                              style={{
-                                display: "flex",
-                                width: 250,
-                              
-                              }}
-                            //   src={require("../assets/avata.jfif")}
-                            />
-                          </div>
+      <div className="firsttable mx-3">
+        <table className="table text-start table-striped table-light ">
+          <tbody>
+            {/* phần tử  */}
 
-                          <div className="col-50">
-                            <h3>{ListUser.tenphim}</h3>
-                           <label>Đạo diễn:  James Cameron</label>
-                          </div>
-                        </div>
-                        <div >
-                            <h2> Nội dung phim</h2>
-                            <hr></hr>
-                            <label >Những trích đoạn đầu tiên hé lộ diễn biến cuộc chiến tiếp theo giữa loài người và bộ tộc người Na’vi của hành tinh Pandora, vốn bắt đầu từ phần một. Hành tinh Pandora rực rỡ ở ngay phân cảnh đầu tiên. Tiếp đến, công chúa Neytiri (Zoe Saldana thủ vai) xuất hiện với đôi mắt tràn đầy cảm xúc dưới ánh nắng trong veo. Người xem được đi sâu vào khám phá hành tinh Pandora với nhiều cảnh quan đáng kinh ngạc, trong đó có dưới lòng đại dương sâu thẳm với những loài sinh vật kỳ bí, đúng như tên gọi của phần hai – The Way Of Water. </label>
-                        </div>
-                        <div >
-                            <h2> LỊCH CHIẾU</h2>
-                            <hr></hr>
-                            
+            <div className="row">
+              <div className="col-75">
+                <div className="container">
+                  <form action="/action_page.php">
+                    <div className="row">
+                      <div className="col-3">
+                        <img
+                          src={List?.[0].hinhanh}
+                        />
+                      </div>
 
-                          <div className="col-50">
-                          <div className="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
-                                <div className="col">
-                                <div className="p-3 border bg-light">15:30</div>:
-                                </div>
-                                <div className="col">
-                                <div className="p-3 border bg-light">18:00</div>
-                                </div>
-                                <div className="col">
-                                <div className="p-3 border bg-light">19:00</div>
-                                </div>
-                                <div className="col">
-                                <div className="p-3 border bg-light">20:45</div>
-                                </div>
-                                <div className="col">
-                                <div className="p-3 border bg-light">22:00</div>
-                                </div>
-                            
-                            </div>
-                        </div>
-                        </div>
-                      </form>
+                      <div className="col-2">
+                        <h3>{List?.[0].tenphim}</h3>
+                        {List?.[0].tenviet != null ? (
+                        <label>Tên Việt : {List?.[0].tenviet}</label>
+                        ):null}
+                        {List?.[0].daodien != null ? (
+                        <label>Đạo Diễn : {List?.[0].daodien}</label>
+                        ):null}
+                        {List?.[0].quocgia != null ? (
+                        <label>Quốc gia : {List?.[0].quocgia}</label>
+                        ):null}
+                        {List?.[0].nsx != null ? (
+                        <label>Nhà Sản xuất: {List?.[0].nsx}</label>
+                        ):null}
+                        {List?.[0].dienvien != null ? (
+                        <label>Diễn viên : {List?.[0].dienvien}</label>
+                        ):null}
+                        {List?.[0].theloai != null ? (
+                        <label>Thể loại : {List?.[0].theloai}</label>
+                        ):null}
+                        {List?.[0].ngaykhoichieu != null ? (
+                        <label>Ngày khởi chiếu : {List?.[0].ngaykhoichieu}</label>
+                        ): null}
+                       
+                      </div>
+                      <div className="col-3">
+                    <BookTicketDetail/>
+
+                      </div>
+                    <div>
                     </div>
-                  </div>
+                    </div>
+                    <div>
+                      <h2> Nội dung phim</h2>
+                      <hr></hr>
+                      <label>
+                        {List?.[0].mota}
+                      </label>
+                    </div>
+                  
+                  </form>
                 </div>
-              </tbody>
-            </table>
-          </div>
-          <Footer/>
-        </>
-    )
+              </div>
+            </div>
+          </tbody>
+        </table>
+      </div>
+      <Footer />
+    </>
+  );
 }
