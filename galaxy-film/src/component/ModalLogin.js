@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -30,7 +31,6 @@ function MyVerticallyCenteredModal(props) {
   const [emailchange, setemailchange] = useState();
 
   const [Auth, setAuth] = useState([])
-  // const [show, setshow] = useState()
  
   const forgetPass = () => {
     sendPasswordResetEmail(auth, emailchange)
@@ -197,7 +197,7 @@ function MyVerticallyCenteredModal(props) {
               />
             </div>
             {username === "thanh126126@gmail.com" ? (
-              <Link to="/admin">
+              <Link to="/adminsEslL7UCPOhXJfFP9RO6qGBwJp93">
             <Button className="mb-4 w-100"  type="submit" block="true" onClick={()=>{
               SignIn();
 
