@@ -4,16 +4,15 @@ import "bootstrap/dist/js/bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/flim.css";
 import { Link } from "react-router-dom";
-import { GetAllCinemas, GetListFilm, GetTimes } from "../config";
+import { GetAllCinemas, GetTimes } from "../config";
 import { onAuthStateChanged } from "@firebase/auth";
 import { auth } from "../config/firebase";
 
-export default function BookTickets() {
-  const [ListFilm, setList] = useState([]);
+export default function BookTicketDetail() {
   const [ListCinemas, setListCinemas] = useState([]);
   const [ListTime, setListTime] = useState([]);
 
-  const [Film, setFilm] = useState();
+  // eslint-disable-next-line no-unused-vars
   const [Cinemas, setCinemas] = useState();
   const [Auth, setAuth] = useState();
   // cinemas
@@ -24,14 +23,7 @@ export default function BookTickets() {
       })
       .catch((err) => console.log("error =>", err));
   }, []);
-  // film
-  useEffect(() => {
-    GetListFilm()
-      .then((data) => {
-        setList(data);
-      })
-      .catch((err) => console.log("error =>", err));
-  }, []);
+
   //   time
   useEffect(() => {
     GetTimes()
@@ -59,23 +51,10 @@ export default function BookTickets() {
       <div className="container" style={styles.class}>
         <div className="">
           <div className="Column">
-            <h2 style={styles.a}>Mua Vé Nhanh</h2>
+            <h2 style={styles.a}>Đặt vé</h2>
 
             <div className="form-group">
-              <select
-                onChange={(e) => setFilm(e.currentTarget.value)}
-                className="form-select"
-                placeholder="State"
-              >
-                <option>chọn phim</option>
-                {ListFilm.map((data, index) => {
-                  return (
-                    <option value={data.tenphim} key={index}>
-                      {data.tenphim}
-                    </option>
-                  );
-                })}
-              </select>
+             
             </div>
             <div className="form-group">
               <select
@@ -86,13 +65,12 @@ export default function BookTickets() {
                 <option>Chọn rạp</option>
 
                 {ListCinemas.map((data, index) => {
-                  if (Film != null) {
+               
                     return (
                       <option value={data.name} key={index}>
                         {data.name}
                       </option>
                     );
-                  }
                 })}
               </select>
             </div>
@@ -104,13 +82,13 @@ export default function BookTickets() {
               >
                 <option>chọn ngày</option>
                 {ListTime.map((data, index) => {
-                  if (Cinemas != null) {
+                
                     return (
                       <option value={data.time} key={index}>
                         {data.time}
                       </option>
                     );
-                  }
+                 
                 })}
               </select>
             </div>
