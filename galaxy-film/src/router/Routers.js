@@ -1,7 +1,7 @@
 import React from "react";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import  AppContextProvider from "../../src/component/Contexts/AppContextProvider"
 // đường dẫn trang
 
 import OrderFood from "../pages/OrderFood";
@@ -16,7 +16,7 @@ export default function Routers() {
   const url = "/book-ticket";
 
   return (
-    <div>
+    <AppContextProvider>
       <Router>
         <Routes>
           <Route path={"/"} element={<Home />}>
@@ -33,6 +33,6 @@ export default function Routers() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
-    </div>
+      </AppContextProvider>
   );
 }
