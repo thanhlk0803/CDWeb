@@ -142,7 +142,7 @@ export default function ComboFood() {
             {/* chon */}
             <div className=" col7-container ">
               <h3 className="text-uppercase text-start text-white p-3 ">
-                Chọn vé/Thức Ăn
+                Chọn vé/Thức Ăn 
               </h3>
               {/* chon combo */}
               <div className="firsttable mx-3">
