@@ -7,10 +7,11 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Header from "../component/Header";
 import Button from 'react-bootstrap/Button';
 import Footer from "../component/Footer";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 export default function SeatsChairs() {
   const url ="/book-ticket"
-
+  const { id } = useLocation();
+  const navigate = useNavigate();
   return (
     <>
     

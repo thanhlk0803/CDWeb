@@ -53,7 +53,6 @@ function MyComponent ()  {
       })
       .catch((err) => console.log("error =>", err));
   }, []);
-console.log(ListSlider);
     return (
         <div >
 
@@ -77,7 +76,7 @@ console.log(ListSlider);
                     paddingRight: 150,
                     paddingTop: 50,
                 }}>
-                    < BookTickets style={styles.btn} />
+                    <BookTickets style={styles.btn} />
                 </div>
 <<<<<<< HEAD
 

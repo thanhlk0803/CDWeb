@@ -128,11 +128,12 @@ export default function SeatChairs() {
     const newTooltip = `tooltip for id-${id} added by callback`;
     addCb(row, number, id, newTooltip);
   };
-
+  console.log(selected,time);
   const removeSeatCallback = ({ row, number, id }, removeCb) => {
     setSelected((list) => list.filter((item) => item !== number));
     removeCb(row, number);
   };
+
   return (
     <div className="seats">
       <SeatPicker
@@ -140,7 +141,7 @@ export default function SeatChairs() {
         removeSeatCallback={removeSeatCallback}
         rows={rows}
         alpha
-        maxReservableSeats={10}
+        maxReservableSeats={1}
         visible
       />
     
