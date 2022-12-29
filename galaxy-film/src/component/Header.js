@@ -3,18 +3,10 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { useState } from "react";
-=======
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { useEffect, useState } from "react";
->>>>>>> main
-=======
-import { useState } from "react";
->>>>>>> main
 import * as Icon from "react-bootstrap-icons";
 import ModalLogin from "./ModalLogin";
+
 import CategoryHeader from "./CategoryHeader";
 import { useParams } from "react-router-dom";
 
@@ -69,6 +61,7 @@ function Header() {
             <div>
               <ModalLogin />
             </div>
+            
           </Navbar.Collapse>
         </Container>
       </Navbar>

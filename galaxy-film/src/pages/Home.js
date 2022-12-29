@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 import Slider from "../component/Slider";
-import Flim from "../component/Flim";
+import Flim from "../component/flim";
 
 export default function Home() {
   return (
@@ -14,6 +14,7 @@ export default function Home() {
       <div>
         <Flim/>
       </div>
+
       <div>
         <Footer />
       </div>

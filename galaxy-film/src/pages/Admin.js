@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 import { db, GetOrder } from "../config";
+import { Link } from "react-router-dom";
+
 // import "../public/assets1/bootstrap/css/bootstrap.min.css"
 export default function Admin() {
   const [ListOrder, setList] = useState([]);
@@ -21,10 +23,10 @@ export default function Admin() {
       status: "complete",
     });
     alert(
-        "Thay đổi thành công",
-        "Thay đổi thành công",
-        [{ text: "OK" }]
-      )
+      "Thay đổi thành công",
+      "Thay đổi thành công",
+      [{ text: "OK" }]
+    )
   };
   const destroy = async (index) => {
     const isActive = doc(db, "datve", ListOrder?.[index].id);
@@ -32,10 +34,10 @@ export default function Admin() {
       status: "Delete",
     });
     alert(
-        "Thay đổi thất bại",
-        "Thay đổi thất bại",
-        [{ text: "OK" }]
-      )
+      "Thay đổi thất bại",
+      "Thay đổi thất bại",
+      [{ text: "OK" }]
+    )
   };
   return (
     <div>
@@ -45,8 +47,25 @@ export default function Admin() {
           <div id="content">
             <div class="container-fluid">
               <div class="card shadow">
-                <div class="card-header py-3">
-                  <p class="text-primary m-0 fw-bold">Order</p>
+                <div class="card-header py-3 d-flex">
+
+                  {/* <p class="text-primary m-0 fw-bold">Order</p> */}
+                  <div className="w-25 d-flex justify-content-between me-5 pe-5">
+                    <Link
+                      to={"/adminsEslL7UCPOhXJfFP9RO6qGBwJp93"}
+                      class="text-primary m-0 fw-bold text-decoration-none  "
+                    >
+                      Order
+                    </Link>
+
+                    <Link
+                      to={"/listFlim"}
+                      class="text-primary m-0 fw-bold me-5 text-decoration-none"
+                    >
+                      listFlim
+                    </Link>
+                  </div>
+
                 </div>
                 <div class="card-body">
                   <div class="row"></div>
