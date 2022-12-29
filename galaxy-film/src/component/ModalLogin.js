@@ -49,7 +49,7 @@ function MyVerticallyCenteredModal(props) {
         "Thông báo không để trống trường name",
         [{ text: "OK" }]
       )
-      // ..
+      
     });
   }
 // đăng nhập
