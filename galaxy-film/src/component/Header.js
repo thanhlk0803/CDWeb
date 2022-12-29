@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { useState } from "react";
 import * as Icon from "react-bootstrap-icons";
 import ModalLogin from "./ModalLogin";
+
 import CategoryHeader from "./CategoryHeader";
 import { useParams } from "react-router-dom";
 
@@ -60,6 +61,7 @@ function Header() {
             <div>
               <ModalLogin />
             </div>
+            
           </Navbar.Collapse>
         </Container>
       </Navbar>

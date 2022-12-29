@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -8,7 +7,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { GetListFilm } from '../config';
 
-function MyComponent ()  {
+function Slider ()  {
     const [ListSlider, setList] = useState([]);
   useEffect(() => {
     GetListFilm()
@@ -59,4 +58,4 @@ const styles = {
         padding: 6,
     }
 };
- export default MyComponent;
+ export default Slider;

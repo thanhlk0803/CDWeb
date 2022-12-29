@@ -4,7 +4,7 @@ import { GetListFilm } from "../config";
 import { Link } from "react-router-dom";
 
 export default function Flim() {
-  const [ListUser, setList] = useState([]);
+  const [listFlim, setList] = useState([]);
   useEffect(() => {
     GetListFilm()
       .then((data) => {
@@ -13,7 +13,31 @@ export default function Flim() {
       })
       .catch((err) => console.log("error =>", err));
   }, []);
-  console.log(ListUser);
+  console.log(listFlim);
+  const flims = listFlim.map((course, imdex) => {
+    return (
+      <div
+        className="col-xl-3 col-lg-4 col-md6 col-sm-12 flim-item"
+        key={imdex}
+      >
+     <Link style={{
+      textDecoration:"none",
+      color:"black"
+     }} to={"/detail/"+course.id}  >
+          <div className="card">
+            <img
+              src={course.hinhanh}
+              className="card-img-top"
+              alt="..."
+            />
+            <div className="card-body">
+              <h5 className="card-title">{course.tenphim}</h5>
+            </div>
+          </div>
+        </Link>
+      </div>
+    );
+  })
   return (
     <>
       <section className="flim">
@@ -23,30 +47,7 @@ export default function Flim() {
 
         <div className="container">
           <div className="row">
-            {ListUser.map((course, imdex) => {
-              return (
-                <div
-                  className="col-xl-3 col-lg-4 col-md6 col-sm-12 flim-item"
-                  key={imdex}
-                >
-               <Link style={{
-                textDecoration:"none",
-                color:"black"
-               }} to={"/detail/"+course.id}  >
-                    <div className="card">
-                      <img
-                        src={course.hinhanh}
-                        className="card-img-top"
-                        alt="..."
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title">{course.tenphim}</h5>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-              );
-            })}
+            {flims}
           </div>
         </div>
       </section>
