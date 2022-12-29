@@ -13,7 +13,6 @@ export default function Flim() {
       })
       .catch((err) => console.log("error =>", err));
   }, []);
-  console.log(ListUser);
   return (
     <>
       <section className="flim">
