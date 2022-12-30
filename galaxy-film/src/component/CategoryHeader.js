@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { useState } from "react";
 import ListfilmCategoriesHome from "./ListfilmCategoriesHome";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../config/firebase";
 export default function CategoryHeader() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showDropdown2, setShowDropdown2] = useState(false);
@@ -14,7 +16,21 @@ export default function CategoryHeader() {
   const [showDropdown6, setShowDropdown6] = useState(false);
 
   const [showDropdown7, setShowDropdown7] = useState(false);
-
+  const [Auth, setAuth] = useState(null);
+  // eslint-disable-next-line no-unused-vars
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuth(user);
+      } else {
+        setAuth(null);
+      }
+    });
+    return () => {
+      listen();
+    };
+  }, []);
+  console.log(Auth);
   return (
     <Navbar variant="dark" bg="dark" expand="sm">
       <Container fluid>
@@ -31,9 +47,7 @@ export default function CategoryHeader() {
               onMouseOver={() => setShowDropdown(true)}
               show={showDropdown}
             >
-             
-                <ListfilmCategoriesHome />
-            
+              <ListfilmCategoriesHome />
             </NavDropdown>
           </Nav>
           {/* 2 */}
@@ -162,6 +176,7 @@ export default function CategoryHeader() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+        {Auth !== null ? <Navbar.Brand href={`/history/O6qGBwJp93`}>Lich sử </Navbar.Brand> : null}
       </Container>
     </Navbar>
   );
