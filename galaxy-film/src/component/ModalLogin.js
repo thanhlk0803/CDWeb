@@ -114,7 +114,6 @@ function MyVerticallyCenteredModal(props) {
   
   }
 
-
   const handleJustifyClick = (value) => {
     if (value === justifyActive) {
       return;
@@ -122,7 +121,6 @@ function MyVerticallyCenteredModal(props) {
 
     setJustifyActive(value);
   };
-
   // props.setData(show);
 
   return (
@@ -281,7 +279,6 @@ function MyVerticallyCenteredModal(props) {
   );
 }
 // bên trong modal
-
 
 
 export default function ModalLogin() {

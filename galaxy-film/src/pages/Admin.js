@@ -59,10 +59,10 @@ export default function Admin() {
                     </Link>
 
                     <Link
-                      to={"/listFlim"}
-                      class="text-primary m-0 fw-bold me-5 text-decoration-none"
+                      to={"/listFilm"}
+                      class="text-primary m-0 fw-bold text-decoration-none"
                     >
-                      listFlim
+                      listFilm
                     </Link>
                   </div>
 

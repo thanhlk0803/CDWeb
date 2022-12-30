@@ -1,10 +1,8 @@
-import React from 'react';
+import React, { useState,  useEffect } from 'react';
 import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import BookTickets from "../component/BookTickets";
 import {Carousel} from "react-bootstrap";
-import { useState } from 'react';
-import { useEffect } from 'react';
 import { GetListFilm } from '../config';
 
 function Slider ()  {
