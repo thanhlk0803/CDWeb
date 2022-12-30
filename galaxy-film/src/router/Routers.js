@@ -30,7 +30,7 @@ export default function Routers() {
           <Route path={url + ""} element={<OrderFood />} />
 
           <Route path={url + "/seatschair"} element={<SeatsChairs />} />
-          <Route path={url + "/seatschair/payment"} element={<Payment />} />
+          <Route path={url + "/seatschair/paymentPOhXJfFP9RO"} element={<Payment />} />
           <Route path={"/adminsEslL7UCPOhXJfFP9RO6qGBwJp93"} element={<Admin />} />
           <Route path={"/listFilm"} element={<AdminList />} />
           <Route path={"/listFilm/addFilm"} element={<AddFilm />} />

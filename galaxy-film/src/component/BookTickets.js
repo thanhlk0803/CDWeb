@@ -1,3 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
+/* eslint-disable array-callback-return */
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/js/bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -6,6 +9,8 @@ import { Link } from "react-router-dom";
 import { GetAllCinemas, GetListFilm, GetTimes } from "../config";
 import { onAuthStateChanged } from "@firebase/auth";
 import { auth } from "../config/firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { addFilm } from "./redux/reducers/filmSlice";
 
 export default function BookTickets() {
   const [ListFilm, setList] = useState([]);
@@ -14,6 +19,7 @@ export default function BookTickets() {
 
   const [Film, setFilm] = useState();
   const [Cinemas, setCinemas] = useState();
+  const [time, settime] = useState();
   const [Auth, setAuth] = useState();
   // cinemas
   useEffect(() => {
@@ -52,7 +58,17 @@ export default function BookTickets() {
       listen();
     };
   }, []);
-  console.log(ListTime);
+  // redux
+  const [Redux, setRedux] = useState([]);
+  const addBookTicket = useSelector((state) => state.film.data);
+  const dispatch = useDispatch();
+  function addCinemas() {
+    Redux.push({ tenfilm: Film, rap: Cinemas, time: time });
+  }
+  useEffect(() => {
+    addCinemas();
+  }, [time])
+  console.log(time);
   return (
     <>
       <div className="container" style={styles.class}>
@@ -97,7 +113,7 @@ export default function BookTickets() {
             </div>
             <div className="form-group">
               <select
-                onChange={(e) => setCinemas(e.currentTarget.value)}
+                onChange={(e) => settime(e.currentTarget.value)}
                 className="form-select"
                 placeholder="Times"
               >
@@ -117,6 +133,10 @@ export default function BookTickets() {
               <Link
                 to={"/book-ticket"}
                 className="add btn btn-danger text-white text-uppercase"
+                onClick={() => {
+                 
+                  dispatch(addFilm(Redux));
+                }}
               >
                 Mua vé
               </Link>

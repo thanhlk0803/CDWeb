@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import SeatPicker from "react-seat-picker";
 // import Final from "./Final";
@@ -7,7 +8,7 @@ import "../css/Seats.css";
 export default function SeatChairs() {
   const [selected, setSelected] = useState([]);
   const [time, setTime] = useState(0);
-  let navigate = useNavigate();
+
   const rows = [
     [
       { id: 1, number: "A1" },
@@ -123,6 +124,7 @@ export default function SeatChairs() {
       { id: 19, number: "G13" },
     ],
   ];
+
   const addSeatCallback = ({ row, number, id }, addCb) => {
     setSelected((prevItems) => [...prevItems, number]);
     const newTooltip = `tooltip for id-${id} added by callback`;
@@ -133,7 +135,9 @@ export default function SeatChairs() {
     setSelected((list) => list.filter((item) => item !== number));
     removeCb(row, number);
   };
-
+  const addBookTicket = useSelector((state) => state.film.data);
+  const dispatch = useDispatch();
+  console.log(addBookTicket);
   return (
     <div className="seats">
       <SeatPicker

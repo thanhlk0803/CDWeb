@@ -1,24 +1,8 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit'
-
-const detailSlice = createSlice({
-    name: 'detail',
+import { configureStore } from '@reduxjs/toolkit'
+import filmReducer  from './reducers/filmSlice'
+export const store = configureStore({
   reducer: {
-    addToDetail(state, action) {
-        const {
-          idFood,
-         
-        } = action.payload
-  
-        
-      },
-  
-
-
+    film: filmReducer,
+    
   },
 })
-export const { addToDetail } =
-  detailSlice.actions
-
-const Detail = detailSlice.reducer
-
-export default Detail

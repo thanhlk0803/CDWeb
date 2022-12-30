@@ -12,7 +12,6 @@ import { useParams } from "react-router-dom";
 
 function Header() {
   const { SearchID } = useParams();
-
   const [Login, setLogin] = useState(false);
   const [search, setsearch] = useState("");
   function handleChange(event) {
