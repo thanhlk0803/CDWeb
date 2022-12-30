@@ -12,9 +12,7 @@ import Home from "../pages/Home";
 import SearchScreen from "../pages/Search";
 import DetailPage from "../pages/DetailPages";
 import Admin from "../pages/Admin";
-import AddFlim  from "../pages/addFlim";
-import EditFlim from "../pages/editFlim";
-import AdminList from "../pages/ListFlimAD";
+import History from "../pages/History";
 export default function Routers() {
   const url = "/book-ticket";
 
@@ -30,11 +28,9 @@ export default function Routers() {
           <Route path={url + ""} element={<OrderFood />} />
 
           <Route path={url + "/seatschair"} element={<SeatsChairs />} />
-          <Route path={url + "/seatschair/payment"} element={<Payment />} />
+          <Route path={url + "/seatschair/paymentPOhXJfFP9RO"} element={<Payment />} />
           <Route path={"/adminsEslL7UCPOhXJfFP9RO6qGBwJp93"} element={<Admin />} />
-          <Route path={"/listFlim"} element={<AdminList />} />
-          <Route path={"/addFlim"} element={<AddFlim />} />
-          <Route path={"/editFlim"} element={<EditFlim />} />
+          <Route path="/history/O6qGBwJp93" element={<History />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

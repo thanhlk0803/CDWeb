@@ -19,7 +19,7 @@ import { Button } from "react-bootstrap";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Search } from "../config";
-import { deleteFilm } from "./redux/reducers/filmSlice";
+import { deleteFilm, addSeat } from "./redux/reducers/filmSlice";
 
 const useNavigateParams = () => {
   const navigate = useNavigate();
@@ -79,11 +79,11 @@ export default function ComboFood() {
   // total quantity Double Member
   useEffect(() => {
     const totalDoubleMember = setTotalDoubleMember(
-      quantityDoubleMember * 200000
+      quantityDoubleMember * 180000
     );
   }, [quantityDoubleMember]);
   useEffect(() => {
-    const totalDouble = setTotalDouble(quantityDouble * 180000);
+    const totalDouble = setTotalDouble(quantityDouble * 200000);
   }, [quantityDouble]);
   // total food
   useEffect(() => {
@@ -112,25 +112,34 @@ export default function ComboFood() {
 
   const [Quantity, setQuantity] = useState(0);
   const [combo, setcombo] = useState(0);
-
-// count Ticket
+  const [count, setcount] = useState(0);
+  // count Ticket
 
   useEffect(() => {
-     setQuantity(
+    setQuantity(
       quantityadult + quantityMember + quantityDouble + quantityDoubleMember
     );
   }, [totalAdult, totalMember, totalDouble, totalDoubleMember]);
   // count Food
+
   useEffect(() => {
     const Total = setcombo(
       quantityCombo1 + quantityCombo2 + quantityCombo3 + quantityCombo4
     );
   }, [quantityCombo1, quantityCombo2, quantityCombo3, quantityCombo4]);
 
+  //  connt
+  useEffect(() => {
+    const countdouble = quantityDouble * 2;
+    const countdouble2 = quantityDoubleMember*2;
+    const totalCount = setcount(
+      quantityadult + quantityMember + countdouble + countdouble2
+    );
+  }, [Quantity]);
   // redux
   const addBookTicket = useSelector((state) => state.film.data);
   const dispatch = useDispatch();
-
+  const [List, setList] = useState([]);
   // console.log(addBookTicket);
   const [Cart, setCart] = useState();
   // firebase
@@ -142,6 +151,30 @@ export default function ComboFood() {
       .catch((err) => console.log("error =>", err));
   }, [addBookTicket?.[2].tenfilm]);
 
+  function addCinemas() {
+    List.push({
+      tongtien: TotalCart,
+      loaive: {
+        adult: quantityadult,
+        member: quantityMember,
+        double: quantityDouble,
+        doubleMember: quantityDoubleMember,
+      },
+      loaicombo: {
+        combo1: quantityCombo1,
+        combo2: quantityCombo2,
+        combo3: quantityCombo3,
+        combo4: quantityCombo4,
+      },
+      count: count,
+    });
+  }
+  // useEffect(() => {
+
+  // }, [TotalCart])
+
+  console.log(List);
+
   return (
     <>
       <div className="main">
@@ -151,7 +184,7 @@ export default function ComboFood() {
             {/* chon */}
             <div className=" col7-container ">
               <h3 className="text-uppercase text-start text-white p-3 ">
-                Chọn vé/Thức Ăn 
+                Chọn vé/Thức Ăn
               </h3>
               {/* chon combo */}
               <div className="firsttable mx-3">
@@ -527,13 +560,33 @@ export default function ComboFood() {
                 >
                   Trở lại
                 </Link>
-                <Link
-                  to={url + "/seatschair"}
-                  className="add btn btn-danger text-white text-uppercase"
-                  style={{ margin: 10 }}
-                >
-                  Tiếp tục
-                </Link>
+                {Quantity !== 0 ? (
+                  <Link
+                    to={url + "/seatschair"}
+                    onClick={() => {
+                      addCinemas();
+                      dispatch(addSeat(List));
+                    }}
+                    className="add btn btn-danger text-white text-uppercase"
+                    style={{ margin: 10 }}
+                  >
+                    Tiếp tục
+                  </Link>
+                ) : (
+                  <Link
+                    onClick={() => {
+                      alert(
+                        "Vui lòng chọn vé để đến đến bước sau",
+                        "TVui lòng chọn vé để đến đến bước sau",
+                        [{ text: "OK" }]
+                      );
+                    }}
+                    className="add btn btn-danger text-white text-uppercase"
+                    style={{ margin: 10 }}
+                  >
+                    Tiếp tục
+                  </Link>
+                )}
               </Card.Body>
             </Card>
           </div>
