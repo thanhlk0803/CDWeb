@@ -12,9 +12,9 @@ import Home from "../pages/Home";
 import SearchScreen from "../pages/Search";
 import DetailPage from "../pages/DetailPages";
 import Admin from "../pages/Admin";
-import AddFlim  from "../pages/addFlim";
-import EditFlim from "../pages/editFlim";
-import AdminList from "../pages/ListFlimAD";
+import AddFilm  from "../pages/addFilm";
+import EditFilm from "../pages/editFilm";
+import AdminList from "../pages/ListFilmAD";
 export default function Routers() {
   const url = "/book-ticket";
 
@@ -32,9 +32,9 @@ export default function Routers() {
           <Route path={url + "/seatschair"} element={<SeatsChairs />} />
           <Route path={url + "/seatschair/payment"} element={<Payment />} />
           <Route path={"/adminsEslL7UCPOhXJfFP9RO6qGBwJp93"} element={<Admin />} />
-          <Route path={"/listFlim"} element={<AdminList />} />
-          <Route path={"/addFlim"} element={<AddFlim />} />
-          <Route path={"/editFlim"} element={<EditFlim />} />
+          <Route path={"/listFilm"} element={<AdminList />} />
+          <Route path={"/listFilm/addFilm"} element={<AddFilm />} />
+          <Route path={"/listFilm/editFilm"} element={<EditFilm />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

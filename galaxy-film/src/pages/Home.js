@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 import Slider from "../component/Slider";
-import Flim from "../component/flim";
+import Flim from "../component/film";
 
 export default function Home() {
   return (
