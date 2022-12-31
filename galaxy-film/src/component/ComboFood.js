@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/scope */
 /* eslint-disable jsx-a11y/alt-text */
@@ -16,6 +17,10 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Button } from "react-bootstrap";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Search } from "../config";
+import { deleteFilm, addSeat } from "./redux/reducers/filmSlice";
+
 const useNavigateParams = () => {
   const navigate = useNavigate();
 
@@ -62,25 +67,11 @@ export default function ComboFood() {
   // tổng combo food
   const [TotalFood, setTotalFood] = useState(0);
   // tổng cart
-
   const [TotalCart, setTotalCart] = useState(0);
-
-  console.log("người lớn:" + quantityadult);
-  console.log("người thành viên : " + quantityMember);
-  console.log("vé đôi : " + quantityDouble);
-  console.log("vé đôi thành  viên : " + quantityDoubleMember);
-  console.log("Combo 1 : " + quantityCombo1);
-  console.log("Combo 2: " + quantityCombo2);
-  console.log("Combo 3 : " + quantityCombo3);
-  console.log("Combo 4 : " + quantityCombo4);
   // total quantity adult
   useEffect(() => {
-   
     const totalAdult = setTotalAdult(quantityadult * 100000);
-  }
- 
-  
-  , [quantityadult]);
+  }, [quantityadult]);
   // total quantity Member
   useEffect(() => {
     const totalMember = setTotalMember(quantityMember * 80000);
@@ -88,11 +79,11 @@ export default function ComboFood() {
   // total quantity Double Member
   useEffect(() => {
     const totalDoubleMember = setTotalDoubleMember(
-      quantityDoubleMember * 200000
+      quantityDoubleMember * 180000
     );
   }, [quantityDoubleMember]);
   useEffect(() => {
-    const totalDouble = setTotalDouble(quantityDouble * 180000);
+    const totalDouble = setTotalDouble(quantityDouble * 200000);
   }, [quantityDouble]);
   // total food
   useEffect(() => {
@@ -118,20 +109,71 @@ export default function ComboFood() {
   useEffect(() => {
     const Total = setTotalCart(TotalTicket + TotalFood);
   }, [TotalFood, TotalTicket]);
-  const IDORDER = "";
-  // navigate
-  const useNavigateParams = () => {
-    const navigate = useNavigate();
 
-    return (pathname, params) => {
-      console.log(pathname);
-      const path = {
-        pathname,
-        id: IDORDER,
-      };
-      navigate(path);
-    };
-  };
+  const [Quantity, setQuantity] = useState(0);
+  const [combo, setcombo] = useState(0);
+  const [count, setcount] = useState(0);
+  // count Ticket
+
+  useEffect(() => {
+    setQuantity(
+      quantityadult + quantityMember + quantityDouble + quantityDoubleMember
+    );
+  }, [totalAdult, totalMember, totalDouble, totalDoubleMember]);
+  // count Food
+
+  useEffect(() => {
+    const Total = setcombo(
+      quantityCombo1 + quantityCombo2 + quantityCombo3 + quantityCombo4
+    );
+  }, [quantityCombo1, quantityCombo2, quantityCombo3, quantityCombo4]);
+
+  //  connt
+  useEffect(() => {
+    const countdouble = quantityDouble * 2;
+    const countdouble2 = quantityDoubleMember*2;
+    const totalCount = setcount(
+      quantityadult + quantityMember + countdouble + countdouble2
+    );
+  }, [Quantity]);
+  // redux
+  const addBookTicket = useSelector((state) => state.film.data);
+  const dispatch = useDispatch();
+  const [List, setList] = useState([]);
+  // console.log(addBookTicket);
+  const [Cart, setCart] = useState();
+  // firebase
+  useEffect(() => {
+    Search(addBookTicket?.[2].tenfilm)
+      .then((data) => {
+        setCart(data);
+      })
+      .catch((err) => console.log("error =>", err));
+  }, [addBookTicket?.[2].tenfilm]);
+
+  function addCinemas() {
+    List.push({
+      tongtien: TotalCart,
+      loaive: {
+        adult: quantityadult,
+        member: quantityMember,
+        double: quantityDouble,
+        doubleMember: quantityDoubleMember,
+      },
+      loaicombo: {
+        combo1: quantityCombo1,
+        combo2: quantityCombo2,
+        combo3: quantityCombo3,
+        combo4: quantityCombo4,
+      },
+      count: count,
+    });
+  }
+  // useEffect(() => {
+
+  // }, [TotalCart])
+
+  console.log(List);
 
   return (
     <>
@@ -142,7 +184,7 @@ export default function ComboFood() {
             {/* chon */}
             <div className=" col7-container ">
               <h3 className="text-uppercase text-start text-white p-3 ">
-                Chọn vé/Thức Ăn 
+                Chọn vé/Thức Ăn
               </h3>
               {/* chon combo */}
               <div className="firsttable mx-3">
@@ -218,6 +260,7 @@ export default function ComboFood() {
                       </td>
                       <td scope="row" className="text-center crop-long-texts">
                         <QuantityPicker
+                          min={0}
                           onChange={(value) => {
                             // here value is the final update value of the component
                             setquantityDouble(value);
@@ -318,9 +361,8 @@ export default function ComboFood() {
                           min={0}
                           onChange={(value) => {
                             // here value is the final update value of the component
-                           
-                              setquantityCombo1(value);
-                           
+
+                            setquantityCombo1(value);
                           }}
                         />
                       </td>
@@ -463,13 +505,10 @@ export default function ComboFood() {
           {/* cart */}
           <div className="col-3">
             <Card style={{ width: "18rem", margin: "20px" }}>
-              <Card.Img variant="top" src={require("../assets/a1.jpg")} />
+              <Card.Img variant="top" src={Cart?.[0].hinhanh} />
               <Card.Body>
-                <Card.Title> iCombo 1 Big Extra </Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
+                <Card.Title> {Cart?.[0].tenphim} </Card.Title>
+                <Card.Text>{Cart?.[0].mota}</Card.Text>
               </Card.Body>
               <ListGroup className="list-group-flush">
                 <ListGroup.Item>
@@ -484,16 +523,13 @@ export default function ComboFood() {
                 <ListGroup.Item>
                   {" "}
                   <span className="text-start fw-bold pe-2">Rạp :</span>
-                  <span> Galaxy Trung Chánh</span>
+                  <span> {addBookTicket?.[2].rap}</span>
                   <span className="text-uppercase ps-2 ">|rạp 2</span>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   {" "}
                   <span className="text-start fw-bold pe-2">Xuất Chiếu :</span>
-                  <span> 15:15</span>
-                  <span className="text-uppercase ps-2 ">
-                    |Thứ 3,01/11/2022
-                  </span>
+                  <span> {addBookTicket?.[2].time}</span>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <span className="text-start fw-bold pe-2">Combo :</span>
@@ -515,12 +551,42 @@ export default function ComboFood() {
               </ListGroup>
               <Card.Body>
                 <Link
-                  to={url + "/seatschair"}
+                  to={"/"}
                   className="add btn btn-danger text-white text-uppercase"
                   style={{ margin: 10 }}
+                  onClick={() => {
+                    dispatch(deleteFilm);
+                  }}
                 >
-                  Tiếp tục
+                  Trở lại
                 </Link>
+                {Quantity !== 0 ? (
+                  <Link
+                    to={url + "/seatschair"}
+                    onClick={() => {
+                      addCinemas();
+                      dispatch(addSeat(List));
+                    }}
+                    className="add btn btn-danger text-white text-uppercase"
+                    style={{ margin: 10 }}
+                  >
+                    Tiếp tục
+                  </Link>
+                ) : (
+                  <Link
+                    onClick={() => {
+                      alert(
+                        "Vui lòng chọn vé để đến đến bước sau",
+                        "TVui lòng chọn vé để đến đến bước sau",
+                        [{ text: "OK" }]
+                      );
+                    }}
+                    className="add btn btn-danger text-white text-uppercase"
+                    style={{ margin: 10 }}
+                  >
+                    Tiếp tục
+                  </Link>
+                )}
               </Card.Body>
             </Card>
           </div>
