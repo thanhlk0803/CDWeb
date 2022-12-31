@@ -36,7 +36,7 @@ export default function Admin() {
                 <div class="card-header py-3 d-flex">
 
                   {/* <p class="text-primary m-0 fw-bold">Order</p> */}
-                  <div className="w-25 d-flex justify-content-between me-5 pe-5">
+                  <div className="w-25 d-flex justify-content-between pe-5">
                     <Link
                       to={"/adminsEslL7UCPOhXJfFP9RO6qGBwJp93"}
                       class="text-primary m-0 fw-bold text-decoration-none  "
@@ -46,7 +46,7 @@ export default function Admin() {
 
                     <Link
                       to={"/listFilm"}
-                      class="text-primary m-0 fw-bold text-decoration-none"
+                      class="text-primary fw-bold text-decoration-none  "
                     >
                       listFilm
                     </Link>

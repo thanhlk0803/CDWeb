@@ -2,8 +2,6 @@ import { db } from "./firebase";
 import {
   collection,
   getDocs,
-  query,
-  where,
  
 } from "firebase/firestore"; 
 export  async function GetAllCinemas() {
