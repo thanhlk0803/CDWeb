@@ -20,12 +20,10 @@ export default function EditFlim() {
 
   return (
 
-    <div className="bg-success p-2 text-dark bg-opacity-10"
-    >
-      <Header />
+    <div className="bg-success p-2 text-dark bg-opacity-10">
       <div className="thing">
         <div className="container mx2 w-75 bg-white border rounded-3 border-dark p-5 border-opacity-50" style={{
-          marginTop: '10%',
+          marginTop: '5%',
         }} >
           <h1 className="text-center pb-2 ">
             Update Film
@@ -84,8 +82,6 @@ export default function EditFlim() {
             <div className="col-4" />
           </div>
         </div>
-        <Footer />
-
       </div>
     </div>
 
