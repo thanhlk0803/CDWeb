@@ -8,22 +8,13 @@ import Footer from "../component/Footer";
 import Header from "../component/Header";
 import { db, GetListFilm } from "../config";
 import { Link } from "react-router-dom";
-import {
-  collection,
-  addDoc,
-  doc,
-  deleteDoc,
-  updateDoc,
-  getDoc,
-  getDocs,
-  query,
-  where,
-} from "firebase/firestore";
+import { doc,deleteDoc,} from "firebase/firestore";
 
 // import "../public/assets1/bootstrap/css/bootstrap.min.css"
 export default function Admin() {
   const [listFilm, setList] = useState([]);
   const [check, setCheck] = useState(false);
+  
   const deleteFlim = async (id) => {
     const flim = doc(db, "Film", id);
     await deleteDoc(flim);
@@ -37,17 +28,7 @@ export default function Admin() {
       .catch((err) => console.log("error =>", err));
   }, [check]);
   console.log(listFilm);
-  // const active = async (index) => {
-  //     const isActive = doc(db, "Flim", listFilm?.[index].id);
-  //     await updateDoc(isActive, {
-  //         status: "complete",
-  //     });
-  //     alert(
-  //         "Thay đổi thành công",
-  //         "Thay đổi thành công",
-  //         [{ text: "OK" }]
-  //     )
-  // };
+
   const flims = listFilm.map((course, index) => {
     return (
       <tr>
@@ -117,28 +98,28 @@ export default function Admin() {
                   <div className=" d-flex justify-content-between me-5 pe-5">
                     <Link
                       to={"/adminsEslL7UCPOhXJfFP9RO6qGBwJp93"}
-                      class="text-primary fw-bold me-5 text-decoration-none"
+                      class="text-primary fw-bold me-4 text-decoration-none"
                     >
                       Order
                     </Link>
                     <Link
                       to={"/listFilm"}
-                      class="text-primary fw-bold me-5 text-decoration-none"
+                      class="text-primary fw-bold text-decoration-none text-nowrap ms-5 "
                     >
                       list Film
                     </Link>
                   </div>
-                </div>
-                <div className="d-flex justify-content-between w-100">
                   <div className="col-2"></div>
-                  <Link to="addFilm" className="col-1  mt-2 me-4">
+                  <Link to="addFilm" className="col-1 ">
                     <button className="btn btn-primary">
                       <AiFillFileAdd />
                     </button>
                   </Link>
                 </div>
+                  {/* <div className="d-flex justify-content-between w-100">
+                </div> */}
                 <div class="card-body mx-3">
-                  <div class="row"></div>
+                  <div class="row"></div>  
                   <div
                     class="table-responsive table mt-2"
                     id="dataTable"
@@ -148,6 +129,12 @@ export default function Admin() {
                     <table class="table my-1" id="dataTable">
                       <thead>
                         <tr>
+                          <th
+                            colspan="1"
+                            className="text-capitalize text-center text-nowrap "
+                          >
+                            movie's name{" "}
+                          </th>
                           <th
                             colspan="1"
                             className="text-capitalize text-center text-nowrap "

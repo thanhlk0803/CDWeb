@@ -2,15 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { db } from "../config";
-import {
-  collection,
-  addDoc,
-  doc,
-  getDoc,
-  getDocs,
-  query,
-  where,
-} from "firebase/firestore";
+import {collection,addDoc,} from "firebase/firestore";
 export default function AddFilm() {
   const [date, setDate] = useState();
   const [daoDien, setDaoDien] = useState();
@@ -22,7 +14,6 @@ export default function AddFilm() {
   const [hinh, setHinh] = useState();
   const [theLoai, setTheLoai] = useState();
   const [quocGia, setQuocGia] = useState();
-
 
   const flimRef = collection(db, "Film");
   const data = {
@@ -42,6 +33,7 @@ export default function AddFilm() {
   };
 
   const [selectedImage, setSelectedImage] = useState();
+  // console.log(selectedImage);
   const onSelectFile = (event) => {
     const selectedFiles = event.target.files;
     const selectedFilesArray = Array.from(selectedFiles);
@@ -49,7 +41,7 @@ export default function AddFilm() {
     const imagesArray = selectedFilesArray.map((file) => {
       return URL.createObjectURL(file);
     });
-    setSelectedImage(imagesArray);
+    setSelectedImage(imagesArray); 
   };
 
   return (
@@ -58,7 +50,7 @@ export default function AddFilm() {
         <div
           className="container mx2 w-75 bg-white border rounded-3 border-dark p-5 border-opacity-50"
           style={{
-            marginTop: "5%",
+            marginTop: "2%",
           }}
         >
           <h1 className="text-center pb-2 ">Adding Film</h1>
@@ -135,7 +127,7 @@ export default function AddFilm() {
                 placeholder="nhập Hình"
               ></input>
             </div>
-            {/* <div class="col-6">
+            <div class="col-6">
               <label for="inputAddress" class="form-label">Hình Ảnh</label>
               <input type="file" name="images" class="form-control" onChange={onSelectFile} multiple accept="image/png, image/jpeg, image/webp"></input>
               <div className="images">
@@ -148,7 +140,7 @@ export default function AddFilm() {
                   )
                 })}
               </div>
-            </div> */}
+            </div>
             <div className="row">
               <div class="col-md-3">
                 <label for="inputAddress" class="form-label">
