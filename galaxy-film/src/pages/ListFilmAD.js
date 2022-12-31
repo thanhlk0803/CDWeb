@@ -10,7 +10,7 @@ import { db, GetListFilm } from "../config";
 import { Link } from "react-router-dom";
 
 // import "../public/assets1/bootstrap/css/bootstrap.min.css"
-export default function Admin() {
+export default function ListFilmAD() {
     const [listFilm, setList] = useState([]);
     useEffect(() => {
         GetListFilm()

@@ -29,6 +29,10 @@ export default function EditFlim() {
             Update Film
           </h1>
           <form class="row g-2 ">
+          <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Tên phim</label>
+              <input type="email" class="form-control" id="dienvien" placeholder="nhập tên phim"></input>
+            </div>
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">Diễn viên</label>
               <input type="email" class="form-control" id="dienvien" placeholder="nhập tên diễn viên"></input>
@@ -36,10 +40,6 @@ export default function EditFlim() {
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">Nhà Sản Xuât</label>
               <input type="email" class="form-control" id="nsx" placeholder="nhập tên nhà sản xuất"></input>
-            </div>
-            <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">Tên phim</label>
-              <input type="email" class="form-control" id="dienvien" placeholder="nhập tên phim"></input>
             </div>
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">Tên Tiếng Việt</label>

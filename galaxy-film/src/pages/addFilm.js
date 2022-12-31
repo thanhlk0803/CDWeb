@@ -6,7 +6,7 @@ export default function AddFilm() {
 
   const [date, setDate] = useState();
   console.log("Date", date);
-
+  
   const [selectedImage, setSelectedImage] = useState();
   const onSelectFile = (event) => {
     const selectedFiles = event.target.files;
@@ -29,17 +29,21 @@ export default function AddFilm() {
             Adding Film
           </h1>
           <form class="row g-2 ">
+          <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Tên phim</label>
+              <input type="email" class="form-control" id="dienvien" placeholder="nhập tên phim"></input>
+            </div>
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">Diễn viên</label>
               <input type="email" class="form-control" id="dienvien" placeholder="nhập tên diễn viên"></input>
             </div>
             <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">Nhà Sản Xuât</label>
-              <input type="email" class="form-control" id="nsx" placeholder="nhập tên nhà sản xuất"></input>
+              <label for="inputEmail4" class="form-label">Đạo Diễn</label>
+              <input type="email" class="form-control" id="dienvien" placeholder="nhập tên đạo diễn"></input>
             </div>
             <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">Tên phim</label>
-              <input type="email" class="form-control" id="dienvien" placeholder="nhập tên phim"></input>
+              <label for="inputEmail4" class="form-label">Nhà Sản Xuât</label>
+              <input type="email" class="form-control" id="nsx" placeholder="nhập tên nhà sản xuất"></input>
             </div>
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">Tên Tiếng Việt</label>
