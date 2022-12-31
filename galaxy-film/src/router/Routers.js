@@ -34,7 +34,7 @@ export default function Routers() {
           <Route path={"/adminsEslL7UCPOhXJfFP9RO6qGBwJp93"} element={<Admin />} />
           <Route path={"/listFilm"} element={<AdminList />} />
           <Route path={"/listFilm/addFilm"} element={<AddFilm />} />
-          <Route path={"/listFilm/editFilm"} element={<EditFilm />} />
+          <Route path={"/listFilm/editFilm/:id"} element={<EditFilm />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
